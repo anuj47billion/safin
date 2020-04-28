@@ -25,92 +25,96 @@ const SignUp = props => {
       <View style={styles.topView}>
         <Text style={{fontSize: 35}}>Sign Up</Text>
       </View>
-      <View style={styles.centerView}>
-        <Formik
-          initialValues={{phoneNumber: '', password: '', confirmpassword: ''}}
-          onSubmit={values => console.log(values)}>
-          {({handleChange, handleBlur, handleSubmit, values}) => (
-            <View style={{padding: 20}}>
-              <View>
-                <Text>Phone Number</Text>
-                <TextInput
-                  onChangeText={handleChange('phoneNumber')}
-                  onBlur={handleBlur('phoneNumber')}
-                  value={values.phoneNumber}
-                  style={{
-                    borderBottomWidth: 1,
-                    fontSize: 18,
-                    marginBottom: 30,
-                    marginTop: -10,
-                  }}
-                />
-              </View>
-              <View>
-                <Text>Password</Text>
-                <TextInput
-                  onChangeText={handleChange('password')}
-                  onBlur={handleBlur('password')}
-                  value={values.password}
-                  style={{
-                    borderBottomWidth: 1,
-                    fontSize: 18,
-                    marginBottom: 20,
-                    marginTop: -10,
-                  }}
-                />
-              </View>
-              <View>
-                <Text>Confirm Password</Text>
-                <TextInput
-                  onChangeText={handleChange('confirmpassword')}
-                  onBlur={handleBlur('confirmpassword')}
-                  value={values.password}
-                  style={{
-                    borderBottomWidth: 1,
-                    fontSize: 18,
-                    marginBottom: 20,
-                    marginTop: -10,
-                  }}
-                />
-              </View>
-              <View>
-                <CheckBox
-                  title="Terms & Conditions"
-                  checkedIcon={
-                    <View style={{backgroundColor: '#1FC2CB'}}>
-                      <AntDesign
-                        style={{color: '#fff'}}
-                        name="check"
-                        size={20}
-                      />
-                    </View>
-                  }
-                  uncheckedIcon={<View style={{padding: 9, borderWidth: 1}} />}
-                  containerStyle={{
-                    backgroundColor: 'transparent',
-                    borderWidth: 0,
-                    padding: 0,
-                  }}
-                  checked={true}
-                />
+      <Formik
+        initialValues={{phoneNumber: '', password: '', confirmpassword: ''}}
+        onSubmit={values => console.log(values)}>
+        {({handleChange, handleBlur, handleSubmit, values}) => (
+          <>
+            <View style={styles.centerView}>
+              <View style={{padding: 20}}>
+                <View>
+                  <Text>Phone Number</Text>
+                  <TextInput
+                    onChangeText={handleChange('phoneNumber')}
+                    onBlur={handleBlur('phoneNumber')}
+                    value={values.phoneNumber}
+                    style={{
+                      borderBottomWidth: 1,
+                      fontSize: 18,
+                      marginBottom: 30,
+                      marginTop: -10,
+                    }}
+                  />
+                </View>
+                <View>
+                  <Text>Password</Text>
+                  <TextInput
+                    onChangeText={handleChange('password')}
+                    onBlur={handleBlur('password')}
+                    value={values.password}
+                    style={{
+                      borderBottomWidth: 1,
+                      fontSize: 18,
+                      marginBottom: 20,
+                      marginTop: -10,
+                    }}
+                  />
+                </View>
+                <View>
+                  <Text>Confirm Password</Text>
+                  <TextInput
+                    onChangeText={handleChange('confirmpassword')}
+                    onBlur={handleBlur('confirmpassword')}
+                    value={values.password}
+                    style={{
+                      borderBottomWidth: 1,
+                      fontSize: 18,
+                      marginBottom: 20,
+                      marginTop: -10,
+                    }}
+                  />
+                </View>
+                <View>
+                  <CheckBox
+                    title="Terms & Conditions"
+                    checkedIcon={
+                      <View style={{backgroundColor: '#1FC2CB'}}>
+                        <AntDesign
+                          style={{color: '#fff'}}
+                          name="check"
+                          size={20}
+                        />
+                      </View>
+                    }
+                    uncheckedIcon={
+                      <View style={{padding: 9, borderWidth: 1}} />
+                    }
+                    containerStyle={{
+                      backgroundColor: 'transparent',
+                      borderWidth: 0,
+                      padding: 0,
+                    }}
+                    checked={true}
+                  />
+                </View>
               </View>
             </View>
-          )}
-        </Formik>
-      </View>
-      <View style={styles.bottomView}>
-        <TouchableOpacity onPress={() => alert('Sign Up')}>
-          <View style={styles.buttonContainer}>
-            <Text style={styles.signText}>Sign Up</Text>
-          </View>
-        </TouchableOpacity>
-        <View style={{flexDirection: 'row', marginTop: 20}}>
-          <Text style={{fontSize: 18}}>You have an account? </Text>
-          <TouchableOpacity onPress={() => navigation.push('Login')}>
-            <Text style={{color: '#0081f2', fontSize: 18}}>Sign In</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+            <View style={styles.bottomView}>
+              <TouchableOpacity onPress={() => alert('Sign Up')}>
+                <View style={styles.buttonContainer}>
+                  <Text style={styles.signText}>Sign Up</Text>
+                </View>
+              </TouchableOpacity>
+              <View style={{flexDirection: 'row', marginTop: 20}}>
+                <Text style={{fontSize: 18}}>You have an account? </Text>
+                <TouchableOpacity onPress={() => navigation.push('Login')}>
+                  <Text style={{color: '#0081f2', fontSize: 18}}>Sign In</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </>
+        )}
+      </Formik>
     </View>
   );
 };

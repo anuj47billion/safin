@@ -9,6 +9,7 @@ import OptionsPage from '../pages/OptionsPage';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import OtpVerify from '../pages/OtpVerify';
+import ForgetPassword from '../pages/ForgetPassword';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -19,7 +20,7 @@ const AppContainer = () => {
     <>
       <View style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="OptionsPage">
+          <Stack.Navigator initialRouteName="Login">
             <Stack.Screen
               options={{
                 headerShown: false,
@@ -75,6 +76,22 @@ const AppContainer = () => {
               }}
               name="OtpVerify"
               component={OtpVerify}
+            />
+            <Stack.Screen
+              options={{
+                headerTitle: props => <></>,
+                headerBackground: () => <></>,
+                headerLeft: props => (
+                  <Ionicons
+                    name="md-arrow-back"
+                    size={30}
+                    style={{padding: 20}}
+                    onPress={props.onPress}
+                  />
+                ),
+              }}
+              name="ForgetPassword"
+              component={ForgetPassword}
             />
             <Stack.Screen
               options={{

@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-undef */
 import React from 'react';
 import {
   StyleSheet,
@@ -7,18 +9,17 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import LoginForm from './components/LoginForm';
 import {Formik} from 'formik';
 
 const width = Dimensions.get('window').width;
 
-const Login = props => {
+const ForgetPassword = props => {
   const {navigation} = props;
 
   return (
     <View style={styles.container}>
       <View style={styles.topView}>
-        <Text style={{fontSize: 35}}>Sign In</Text>
+        <Text style={{fontSize: 35}}>Forget Password</Text>
       </View>
       <Formik
         initialValues={{phoneNumber: '', password: ''}}
@@ -41,37 +42,14 @@ const Login = props => {
                     }}
                   />
                 </View>
-                <View>
-                  <Text>Password</Text>
-                  <TextInput
-                    onChangeText={handleChange('password')}
-                    onBlur={handleBlur('password')}
-                    value={values.password}
-                    style={{
-                      borderBottomWidth: 1,
-                      fontSize: 18,
-                      marginBottom: 20,
-                      marginTop: -10,
-                    }}
-                  />
-                </View>
-                <View style={{marginTop: 30}}>
-                  <Text>Forget Password</Text>
-                </View>
               </View>
             </View>
             <View style={styles.bottomView}>
               <TouchableOpacity onPress={() => navigation.push('OtpVerify')}>
                 <View style={styles.buttonContainer}>
-                  <Text style={styles.signText}>Sign In</Text>
+                  <Text style={styles.signText}>Reset</Text>
                 </View>
               </TouchableOpacity>
-              <View style={{flexDirection: 'row', marginTop: 20}}>
-                <Text style={{fontSize: 18}}>Don't have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.push('SignUp')}>
-                  <Text style={{color: '#0081f2', fontSize: 18}}>Sign Up</Text>
-                </TouchableOpacity>
-              </View>
             </View>
           </>
         )}
@@ -80,7 +58,7 @@ const Login = props => {
   );
 };
 
-export default Login;
+export default ForgetPassword;
 
 const styles = StyleSheet.create({
   container: {
