@@ -12,12 +12,16 @@ const FormikInputField = ({
     <TextInput
       style={props.style}
       onChangeText={props.handleChange}
+      onBlur={props.handleBlur}
+      value={props.value}
+      secureTextEntry={props.type === 'password'}
+      keyboardType={props.type}
       // {...props}
     />
-    {/* <ErrorMessage
+    <ErrorMessage
       name={fields.name}
-      render={msg => <div className="text-danger font-size-12">{msg}</div>}
-    /> */}
+      render={msg => <Text style={{color: 'red'}}>{msg}</Text>}
+    />
   </View>
 );
 

@@ -19,69 +19,48 @@ const width = Dimensions.get('window').width;
 const LoginForm = props => {
   const {navigation, handleChange, handleBlur, handleSubmit, values} = props;
   const [secureStatus, setSecureStatus] = useState(true);
-  console.log('=================', values);
 
   return (
     <>
       <View style={styles.centerView}>
         <View style={{padding: 20}}>
-          <View>
-            <TextInput
-              value={values.phoneNumber}
-              onChangeText={handleChange('phoneNumber')}
-              onBlur={() => setFieldTouched('phoneNumber')}
-              style={{
-                borderBottomWidth: 1,
-                fontSize: 18,
-                marginBottom: 30,
-                marginTop: -10,
-              }}
-            />
-            {/* <Field
+          <View style={{marginBottom: 30}}>
+            <Field
               id="phoneNumber"
               name="phoneNumber"
-              type="number"
+              type="numeric"
               value={values.phoneNumber}
               component={FormikInputField}
               handleChange={handleChange('phoneNumber')}
+              handleBlur={handleBlur('phoneNumber')}
               label="Phone Number"
               // placeholder="Phone Number"
               style={{
                 borderBottomWidth: 1,
                 fontSize: 18,
-                marginBottom: 30,
-                marginTop: -10,
-              }}
-            /> */}
-          </View>
-          <View>
-            <TextInput
-              value={values.password}
-              onChangeText={handleChange('password')}
-              onBlur={() => setFieldTouched('password')}
-              style={{
-                borderBottomWidth: 1,
-                fontSize: 18,
-                marginBottom: 20,
+                // marginBottom: 30,
                 marginTop: -10,
               }}
             />
-            {/* <Field
+          </View>
+          <View style={{marginBottom: 20}}>
+            <Field
               id="password"
               name="password"
               type="password"
               value={values.password}
               component={FormikInputField}
               handleChange={handleChange('password')}
+              handleBlur={handleBlur('password')}
               label="Password"
               // placeholder="Password"
               style={{
                 borderBottomWidth: 1,
                 fontSize: 18,
-                marginBottom: 20,
+                // marginBottom: 20,
                 marginTop: -10,
               }}
-            /> */}
+            />
           </View>
           <View style={{marginTop: 30}}>
             <TouchableOpacity onPress={() => navigation.push('ForgetPassword')}>

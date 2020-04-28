@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-undef */
 import React from 'react';
 import {
   StyleSheet,
@@ -9,8 +11,13 @@ import {
 } from 'react-native';
 import LoginForm from './components/LoginForm';
 import {Formik} from 'formik';
-
+import * as Yup from 'yup';
 const width = Dimensions.get('window').width;
+
+const validationSchema = Yup.object({
+  phoneNumber: Yup.string().required("This field is required"),
+  password: Yup.string().required("This field is required")
+})
 
 const Login = props => {
   const {navigation} = props;
@@ -22,57 +29,20 @@ const Login = props => {
       </View>
       <Formik
         initialValues={{phoneNumber: '', password: ''}}
-        onSubmit={values => console.log(values)}>
+        validationSchema={validationSchema}
+        onSubmit={values => {
+          alert(JSON.stringify(values));
+          navigation.push('OtpVerify');
+        }}>
         {({handleChange, handleBlur, handleSubmit, values}) => (
           <>
-            <View style={styles.centerView}>
-              <View style={{padding: 20}}>
-                <View>
-                  <Text>Phone Number</Text>
-                  <TextInput
-                    onChangeText={handleChange('phoneNumber')}
-                    onBlur={handleBlur('phoneNumber')}
-                    value={values.phoneNumber}
-                    style={{
-                      borderBottomWidth: 1,
-                      fontSize: 18,
-                      marginBottom: 30,
-                      marginTop: -10,
-                    }}
-                  />
-                </View>
-                <View>
-                  <Text>Password</Text>
-                  <TextInput
-                    onChangeText={handleChange('password')}
-                    onBlur={handleBlur('password')}
-                    value={values.password}
-                    style={{
-                      borderBottomWidth: 1,
-                      fontSize: 18,
-                      marginBottom: 20,
-                      marginTop: -10,
-                    }}
-                  />
-                </View>
-                <View style={{marginTop: 30}}>
-                  <Text>Forget Password</Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.bottomView}>
-              <TouchableOpacity onPress={() => navigation.push('OtpVerify')}>
-                <View style={styles.buttonContainer}>
-                  <Text style={styles.signText}>Sign In</Text>
-                </View>
-              </TouchableOpacity>
-              <View style={{flexDirection: 'row', marginTop: 20}}>
-                <Text style={{fontSize: 18}}>Don't have an account? </Text>
-                <TouchableOpacity onPress={() => navigation.push('SignUp')}>
-                  <Text style={{color: '#0081f2', fontSize: 18}}>Sign Up</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
+            <LoginForm
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              handleSubmit={handleSubmit}
+              values={values}
+              navigation={navigation}
+            />
           </>
         )}
       </Formik>
