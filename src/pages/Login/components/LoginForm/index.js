@@ -39,7 +39,6 @@ const LoginForm = props => {
                 borderBottomWidth: 1,
                 fontSize: 18,
                 // marginBottom: 30,
-                marginTop: -10,
               }}
             />
           </View>
@@ -58,7 +57,6 @@ const LoginForm = props => {
                 borderBottomWidth: 1,
                 fontSize: 18,
                 // marginBottom: 20,
-                marginTop: -10,
               }}
             />
           </View>

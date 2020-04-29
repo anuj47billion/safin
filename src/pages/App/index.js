@@ -11,6 +11,7 @@ import {
 
 import Dashboard from '../Dashboard';
 import Summary from '../Summary';
+import Profile from '../Profile';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -21,7 +22,7 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const Tabs = () => (
-  <Tab.Navigator>
+  <Tab.Navigator initialRouteName="Profile">
     <Tab.Screen
       name="Dashboard"
       component={Dashboard}
@@ -58,7 +59,7 @@ const Tabs = () => (
     />
     <Tab.Screen
       name="Profile"
-      component={Dashboard}
+      component={Profile}
       options={{
         tabBarLabel: 'Profile',
         tabBarIcon: ({color, size}) => (
@@ -78,25 +79,3 @@ const App = props => {
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  viewBody: {
-    flex: 0.91,
-  },
-  imageView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  userImage: {
-    borderWidth: 1,
-    borderColor: '#000',
-    borderRadius: 100,
-    marginTop: 10,
-  },
-  userText: {
-    fontSize: 20,
-  },
-});

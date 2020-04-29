@@ -20,7 +20,7 @@ const AppContainer = () => {
     <>
       <View style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="Login">
+          <Stack.Navigator initialRouteName="OptionsPage">
             <Stack.Screen
               options={{
                 headerShown: false,
@@ -95,6 +95,7 @@ const AppContainer = () => {
             />
             <Stack.Screen
               options={{
+                headerShown: false,
                 headerTransparent: true,
               }}
               name="App"

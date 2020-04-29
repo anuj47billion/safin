@@ -12,6 +12,7 @@ import {
 import LoginForm from './components/LoginForm';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+
 const width = Dimensions.get('window').width;
 
 const validationSchema = Yup.object({

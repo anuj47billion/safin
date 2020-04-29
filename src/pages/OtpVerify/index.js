@@ -16,26 +16,13 @@ const OtpVerify = props => {
   const OtpInputBoxs = props => {
     return (
       <View style={{flexDirection: 'row', marginTop: 50}}>
-        <View style={styles.otpInputView}>
-          <View style={{borderWidth: 1, padding: 5}}>
-            <TextInput />
+        {[0, 1, 2, 3].map((element, index) => (
+          <View style={styles.otpInputView} key={index}>
+            <View style={{borderWidth: 1, padding: 5}}>
+              <TextInput />
+            </View>
           </View>
-        </View>
-        <View style={styles.otpInputView}>
-          <View style={{borderWidth: 1, padding: 5}}>
-            <TextInput />
-          </View>
-        </View>
-        <View style={styles.otpInputView}>
-          <View style={{borderWidth: 1, padding: 5}}>
-            <TextInput />
-          </View>
-        </View>
-        <View style={styles.otpInputView}>
-          <View style={{borderWidth: 1, padding: 5}}>
-            <TextInput />
-          </View>
-        </View>
+        ))}
       </View>
     );
   };
@@ -55,7 +42,7 @@ const OtpVerify = props => {
         </View>
       </View>
       <View style={styles.bottomView}>
-        <TouchableOpacity onPress={() => alert('sfsdfsdf')}>
+        <TouchableOpacity onPress={() => navigation.push('App')}>
           <View style={styles.buttonContainer}>
             <Text style={styles.signText}>Verify</Text>
           </View>
