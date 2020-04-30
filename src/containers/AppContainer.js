@@ -20,7 +20,7 @@ const AppContainer = () => {
     <>
       <View style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="OptionsPage">
+          <Stack.Navigator initialRouteName="App">
             <Stack.Screen
               options={{
                 headerShown: false,

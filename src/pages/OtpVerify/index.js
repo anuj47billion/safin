@@ -42,7 +42,12 @@ const OtpVerify = props => {
         </View>
       </View>
       <View style={styles.bottomView}>
-        <TouchableOpacity onPress={() => navigation.push('App')}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.push('App', {
+              screen: 'Profile',
+            });
+          }}>
           <View style={styles.buttonContainer}>
             <Text style={styles.signText}>Verify</Text>
           </View>
