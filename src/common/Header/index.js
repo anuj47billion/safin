@@ -20,7 +20,7 @@ const Header = props => {
           <Text style={styles.titleText}>{title}</Text>
         </View>
         <View style={styles.iconView}>
-          <MaterialCommunityIcons name="bell" style={styles.icon} />
+          <MaterialCommunityIcons name="bell-outline" style={styles.icon} />
         </View>
       </View>
     </View>

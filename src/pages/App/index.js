@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-undef */
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -25,7 +24,6 @@ const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const Tabs = params => {
-  console.log(params);
   return (
     <Tab.Navigator
       initialRouteName={
@@ -34,6 +32,10 @@ const Tabs = params => {
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
+        initialParams={{
+          screenName: 'Dashboard',
+          gotoInsideScreen: params.route.params.gotoInsideScreen,
+        }}
         options={{
           tabBarLabel: 'Dashboard',
           tabBarIcon: ({color, size}) => (
@@ -44,6 +46,7 @@ const Tabs = params => {
       <Tab.Screen
         name="Summary"
         component={Summary}
+        initialParams={{screenName: 'Summary'}}
         options={{
           tabBarLabel: 'Summary',
           tabBarIcon: ({color, size}) => (
@@ -58,6 +61,7 @@ const Tabs = params => {
       <Tab.Screen
         name="Settings"
         component={Settings}
+        initialParams={{screenName: 'Settings'}}
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({color, size}) => (
@@ -68,6 +72,7 @@ const Tabs = params => {
       <Tab.Screen
         name="Profile"
         component={Profile}
+        initialParams={{screenName: 'Profile'}}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({color, size}) => (
@@ -80,7 +85,7 @@ const Tabs = params => {
 };
 
 const CustomDrawerContent = props => {
-  const {navigation, state} = props;
+  const {navigation, state, otherParams} = props;
   return (
     <>
       <View style={styles.titleView}>
@@ -98,7 +103,13 @@ const CustomDrawerContent = props => {
                     screen: route.name,
                   });
                 }}>
-                <View style={styles.drawerRoutesView}>
+                <View
+                  style={[
+                    styles.drawerRoutesView,
+                    // props.otherParams.route.params.screen === route.name
+                    //   ? styles.activeTab
+                    //   : '',
+                  ]}>
                   <View>
                     {route.name === 'Dashboard' && (
                       <AntDesign name="home" size={30} />
@@ -108,6 +119,14 @@ const CustomDrawerContent = props => {
                         name="calendar-blank-outline"
                         size={30}
                       />
+                    )}
+                    {route.name === 'Weight' && (
+                      <View>
+                        <Text style={{fontSize: 20}}>lbs</Text>
+                      </View>
+                    )}
+                    {route.name === 'Settings' && (
+                      <Feather name="settings" size={25} />
                     )}
                     {route.name === 'Profile' && (
                       <EvilIcons name="user" size={30} />
@@ -137,7 +156,12 @@ const App = params => {
       <Drawer.Screen
         name="Dashboard"
         component={Tabs}
-        initialParams={{screenName: 'Dashboard'}}
+        initialParams={{
+          screenName: 'Dashboard',
+          gotoInsideScreen: params.route.params
+            ? params.route.params.goToInsideScreen
+            : 'Dashboard',
+        }}
       />
       <Drawer.Screen
         name="Summary"
@@ -182,5 +206,8 @@ const styles = StyleSheet.create({
     padding: 20,
     paddingBottom: 10,
     paddingLeft: 20,
+  },
+  activeTab: {
+    backgroundColor: '#1BA9B1',
   },
 });

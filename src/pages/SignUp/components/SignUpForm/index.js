@@ -21,6 +21,16 @@ const width = Dimensions.get('window').width;
 
 const SignUpForm = props => {
   const {navigation, handleChange, handleBlur, handleSubmit, values} = props;
+  const [securePasswordStatus, setSecurePasswordStatus] = useState(true);
+  const [secureCPasswordStatus, setSecureCPasswordStatus] = useState(true);
+
+  const changeSecureStatus = name => {
+    if (name === 'password') {
+      setSecurePasswordStatus(!securePasswordStatus);
+    } else {
+      setSecureCPasswordStatus(!secureCPasswordStatus);
+    }
+  };
 
   return (
     <>
@@ -42,7 +52,7 @@ const SignUpForm = props => {
               }}
             />
           </View>
-          <View style={{marginBottom: 20}}>
+          <View style={{marginBottom: 30}}>
             <Field
               id="password"
               name="password"
@@ -51,9 +61,10 @@ const SignUpForm = props => {
               component={FormikInputField}
               handleChange={handleChange('password')}
               handleBlur={handleBlur('password')}
+              changeSecureStatus={changeSecureStatus}
+              secureStatus={securePasswordStatus}
               label="Password"
               style={{
-                borderBottomWidth: 1,
                 fontSize: 18,
               }}
             />
@@ -67,11 +78,11 @@ const SignUpForm = props => {
               component={FormikInputField}
               handleChange={handleChange('confirmpassword')}
               handleBlur={handleBlur('confirmpassword')}
+              changeSecureStatus={changeSecureStatus}
+              secureStatus={secureCPasswordStatus}
               label="Confirm Password"
               style={{
-                borderBottomWidth: 1,
                 fontSize: 18,
-                marginTop: -10,
               }}
             />
           </View>

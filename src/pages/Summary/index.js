@@ -3,7 +3,7 @@ import {
   StyleSheet,
   View,
   Text,
-  FlatList,
+  Dimensions,
   Image,
   ScrollView,
   ImageBackground,
@@ -12,6 +12,10 @@ import Header from '../../common/Header';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {LineChart} from 'react-native-chart-kit';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const Summary = props => {
   const {navigation} = props;
@@ -20,7 +24,30 @@ const Summary = props => {
     <View style={styles.container}>
       <Header title="Summary" navigation={navigation} />
       <View style={styles.viewBody}>
-        <Text>Summary</Text>
+        <LineChart
+          data={{
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [
+              {
+                data: [130, 170, 110, 90, 100, 80, 120, 150],
+              },
+            ],
+          }}
+          width={width} // from react-native
+          height={220}
+          // yAxisLabel="$"
+          // yAxisSuffix="k"
+          // yAxisInterval={1} // optional, defaults to 1
+          yLabelsOffset={10}
+          chartConfig={{
+            color: (opacity = 1) => `#C4E7FE`,
+          }}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 16,
+          }}
+        />
       </View>
     </View>
   );
@@ -31,6 +58,7 @@ export default Summary;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#C4E7FE',
   },
   viewBody: {
     flex: 0.91,

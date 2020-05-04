@@ -1,10 +1,22 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TextInput, Animated} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  Animated,
+  Dimensions,
+} from 'react-native';
 import {ErrorMessage} from 'formik';
+
+import Octicons from 'react-native-vector-icons/Octicons';
+
+const width = Dimensions.get('window').width;
 
 const FormikInputField = ({
   field: {...fields},
   form: {touched, errors, ...rest},
+  secureStatus,
   ...props
 }) => {
   const position = new Animated.Value(props.value ? 1 : 0);
@@ -34,10 +46,46 @@ const FormikInputField = ({
     return {
       top: position.interpolate({
         inputRange: [0, 1],
-        outputRange: [14, 0],
+        outputRange: [14, -10],
       }),
     };
   };
+
+  if (props.type === 'password') {
+    return (
+      <View>
+        <Animated.Text
+          style={[styles.titleStyles, returnAnimatedTitleStyles()]}>
+          {props.label}
+        </Animated.Text>
+        <View style={styles.textinputView}>
+          <View style={styles.inputView}>
+            <TextInput
+              style={props.style}
+              onChangeText={props.handleChange}
+              onBlur={handleBlur}
+              onFocus={handleFocus}
+              value={props.value}
+              secureTextEntry={secureStatus}
+              keyboardType={props.type}
+              // {...props}
+            />
+          </View>
+          <View style={styles.secureIconView}>
+            <Octicons
+              name={secureStatus ? 'eye' : 'eye-closed'}
+              size={22}
+              onPress={() => props.changeSecureStatus(fields.name)}
+            />
+          </View>
+        </View>
+        <ErrorMessage
+          name={fields.name}
+          render={msg => <Text style={{color: 'red'}}>{msg}</Text>}
+        />
+      </View>
+    );
+  }
 
   return (
     <View>
@@ -68,5 +116,18 @@ const styles = StyleSheet.create({
   titleStyles: {
     position: 'absolute',
     left: 5,
+    fontSize: 17,
+  },
+  textinputView: {
+    flexDirection: 'row',
+    width: '100%',
+    borderBottomWidth: 1,
+  },
+  inputView: {
+    flex: 0.9,
+  },
+  secureIconView: {
+    flex: 0.1,
+    justifyContent: 'center',
   },
 });

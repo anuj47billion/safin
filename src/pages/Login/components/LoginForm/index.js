@@ -20,6 +20,10 @@ const LoginForm = props => {
   const {navigation, handleChange, handleBlur, handleSubmit, values} = props;
   const [secureStatus, setSecureStatus] = useState(true);
 
+  const changeSecureStatus = () => {
+    setSecureStatus(!secureStatus);
+  };
+
   return (
     <>
       <View style={styles.centerView}>
@@ -51,10 +55,11 @@ const LoginForm = props => {
               component={FormikInputField}
               handleChange={handleChange('password')}
               handleBlur={handleBlur('password')}
+              changeSecureStatus={changeSecureStatus}
+              secureStatus={secureStatus}
               label="Password"
               // placeholder="Password"
               style={{
-                borderBottomWidth: 1,
                 fontSize: 18,
                 // marginBottom: 20,
               }}
