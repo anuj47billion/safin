@@ -32,6 +32,12 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     flex: 0.09,
+    backgroundColor: '#fff',
+    elevation: 4,
+    shadowOffset: {width: 5, height: 5},
+    shadowColor: 'grey',
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
   },
   parentView: {
     flex: 1,

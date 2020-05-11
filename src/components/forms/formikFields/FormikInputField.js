@@ -19,6 +19,8 @@ const FormikInputField = ({
   secureStatus,
   ...props
 }) => {
+  console.log('=================', props);
+
   const position = new Animated.Value(props.value ? 1 : 0);
   const [isFieldActive, setIsFieldActive] = useState(false);
 
@@ -51,7 +53,7 @@ const FormikInputField = ({
     };
   };
 
-  if (props.type === 'password') {
+  if (props.id === 'password' || props.id === 'babyWeight') {
     return (
       <View>
         <Animated.Text
@@ -72,11 +74,16 @@ const FormikInputField = ({
             />
           </View>
           <View style={styles.secureIconView}>
-            <Octicons
-              name={secureStatus ? 'eye' : 'eye-closed'}
-              size={22}
-              onPress={() => props.changeSecureStatus(fields.name)}
-            />
+            {props.id === 'password' && (
+              <Octicons
+                name={secureStatus ? 'eye' : 'eye-closed'}
+                size={22}
+                onPress={() => props.changeSecureStatus(fields.name)}
+              />
+            )}
+            {props.id === 'babyWeight' && (
+              <Text style={{fontWeight: '700', fontSize: 18}}>lbs</Text>
+            )}
           </View>
         </View>
         <ErrorMessage

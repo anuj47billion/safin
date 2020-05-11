@@ -1,28 +1,36 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  Image,
-  ScrollView,
-  ImageBackground,
-  TouchableOpacity,
-} from 'react-native';
-import Header from '../../common/Header';
-import Footer from '../../common/Footer';
+import {StyleSheet, View, Text} from 'react-native';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+import WeightForm from './pages/WeightForm';
+import WeightComparison from './pages/WeightComparison';
+
+const Stack = createStackNavigator();
 
 const Weight = props => {
   const {navigation} = props;
 
   return (
-    <View style={styles.container}>
-      <Header title="Weight" navigation={navigation} />
-      <View style={styles.viewBody}>
-        <Text>Weight</Text>
-      </View>
-      <Footer navigation={navigation} />
-    </View>
+    <Stack.Navigator initialRouteName="WeightComparison">
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="WeightForm"
+        component={WeightForm}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="WeightComparison"
+        component={WeightComparison}
+      />
+    </Stack.Navigator>
   );
 };
 

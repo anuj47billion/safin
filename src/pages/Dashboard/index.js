@@ -6,6 +6,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import DashboardHome from './pages/DashboardHome';
 import DashboardWarning from './pages/DashboardWarning';
+import DashboardAttention from './pages/DashboardAttention';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,14 @@ const Dashboard = props => {
         }}
         name="DashboardWarning"
         component={DashboardWarning}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="DashboardAttention"
+        component={DashboardAttention}
       />
     </Stack.Navigator>
   );

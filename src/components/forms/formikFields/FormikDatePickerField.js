@@ -12,7 +12,7 @@ const FormikDatePickerField = ({
   ...props
 }) => (
   <View>
-    <Text>Baby's Birthday</Text>
+    <Text>{props.label}</Text>
     <DatePicker
       style={{width: '100%', borderBottomWidth: 1}}
       date={props.value}

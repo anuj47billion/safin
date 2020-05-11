@@ -26,9 +26,10 @@ const Drawer = createDrawerNavigator();
 const Tabs = params => {
   return (
     <Tab.Navigator
-      initialRouteName={
-        params.route.params ? params.route.params.screenName : 'Profile'
-      }>
+      // initialRouteName={
+      //   params.route.params ? params.route.params.screenName : 'Profile'
+      // }
+      initialRouteName="Settings">
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
@@ -46,7 +47,10 @@ const Tabs = params => {
       <Tab.Screen
         name="Summary"
         component={Summary}
-        initialParams={{screenName: 'Summary'}}
+        initialParams={{
+          screenName: 'Summary',
+          gotoInsideScreen: params.route.params.gotoInsideScreen,
+        }}
         options={{
           tabBarLabel: 'Summary',
           tabBarIcon: ({color, size}) => (
@@ -166,7 +170,12 @@ const App = params => {
       <Drawer.Screen
         name="Summary"
         component={Tabs}
-        initialParams={{screenName: 'Summary'}}
+        initialParams={{
+          screenName: 'Summary',
+          gotoInsideScreen: params.route.params
+            ? params.route.params.goToInsideScreen
+            : 'Summary',
+        }}
       />
       <Drawer.Screen
         name="Weight"

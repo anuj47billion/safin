@@ -28,6 +28,12 @@ const DashboardWarning = props => {
           <Text style={{color: '#fff'}}>Tom's Health</Text>
           <Text style={{color: '#fff', fontSize: 30}}>Warning</Text>
           <TouchableOpacity
+            onPress={() => {
+              navigation.push('App', {
+                screen: 'Dashboard',
+                goToInsideScreen: 'DashboardAttention',
+              });
+            }}
             style={{width: '100%', alignItems: 'center', marginTop: 20}}>
             <View style={styles.snoozeView}>
               <Text style={styles.snoozeText}>Snooze</Text>
@@ -44,9 +50,9 @@ const DashboardWarning = props => {
               <Entypo name="heart" size={25} />
               <Text>120 BPM</Text>
             </View>
-            <View style={styles.rowDetailView}>
-              <FontAwesome5 name="temperature-low" size={25} />
-              <Text>100.8 F</Text>
+            <View style={[styles.rowDetailView, {backgroundColor: '#FD9068'}]}>
+              <FontAwesome5 name="temperature-low" color="#fff" size={25} />
+              <Text style={{color: '#fff'}}>100.8 F</Text>
             </View>
             <View style={styles.rowDetailView}>
               <Text>95%</Text>
@@ -141,7 +147,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-
+    borderRadius: 10,
     elevation: 4,
     shadowOffset: {width: 5, height: 5},
     shadowColor: 'grey',

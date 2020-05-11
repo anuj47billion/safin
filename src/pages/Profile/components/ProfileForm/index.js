@@ -12,8 +12,6 @@ import {
 import {Field} from 'formik';
 import FormikInputField from '../../../../components/forms/formikFields/FormikInputField';
 import FormikDatePickerField from '../../../../components/forms/formikFields/FormikDatePickerField';
-import DatePicker from 'react-native-datepicker';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const width = Dimensions.get('window').width;
 

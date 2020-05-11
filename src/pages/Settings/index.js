@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -9,18 +9,76 @@ import {
   ImageBackground,
 } from 'react-native';
 import Header from '../../common/Header';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import Feather from 'react-native-vector-icons/Feather';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import ToggleSwitch from 'toggle-switch-react-native';
 
 const Settings = props => {
   const {navigation} = props;
+  const [audibleAlert, serAudibleAlert] = useState(false);
 
   return (
     <View style={styles.container}>
       <Header title="Settings" navigation={navigation} />
       <View style={styles.viewBody}>
-        <Text>Settings</Text>
+        <View>
+          <Text style={{fontSize: 18, color: '#1FC2CB'}}>Alerts</Text>
+        </View>
+        <View
+          style={{
+            paddingTop: 10,
+            paddingBottom: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: '#d5d5d5',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 18, fontWeight: '700'}}>Audible Alerts</Text>
+          <View>
+            <ToggleSwitch
+              isOn={audibleAlert}
+              size="large"
+              onToggle={isOn => serAudibleAlert(!audibleAlert)}
+            />
+          </View>
+        </View>
+        <View
+          style={{
+            paddingTop: 10,
+            paddingBottom: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: '#d5d5d5',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 18, fontWeight: '700'}}>Phone Alerts</Text>
+          <View>
+            <ToggleSwitch
+              isOn={audibleAlert}
+              size="large"
+              onToggle={isOn => serAudibleAlert(!audibleAlert)}
+            />
+          </View>
+        </View>
+        <View
+          style={{
+            paddingTop: 10,
+            paddingBottom: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: '#d5d5d5',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 18, fontWeight: '700'}}>Vital Defaults</Text>
+          <View>
+            <ToggleSwitch
+              isOn={audibleAlert}
+              size="large"
+              onToggle={isOn => serAudibleAlert(!audibleAlert)}
+            />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -31,9 +89,11 @@ export default Settings;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   viewBody: {
     flex: 0.91,
+    padding: 25,
   },
   dashboardBody: {
     flex: 0.92,
