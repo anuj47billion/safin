@@ -11,7 +11,10 @@ const Stack = createStackNavigator();
 
 const Summary = props => {
   return (
-    <Stack.Navigator initialRouteName="WeeklyChart">
+    <Stack.Navigator
+      initialRouteName={
+        props.route.params ? props.route.params.gotoInsideScreen : 'WeeklyChart'
+      }>
       <Stack.Screen
         options={{
           headerShown: false,

@@ -20,7 +20,7 @@ const AppContainer = () => {
     <>
       <View style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="App">
+          <Stack.Navigator initialRouteName="OtpVerify">
             <Stack.Screen
               options={{
                 headerShown: false,
@@ -31,64 +31,72 @@ const AppContainer = () => {
             />
             <Stack.Screen
               options={{
-                headerTitle: props => <></>,
-                headerBackground: () => <></>,
-                headerLeft: props => (
-                  <Ionicons
-                    name="md-arrow-back"
-                    size={30}
-                    style={{padding: 20}}
-                    onPress={props.onPress}
-                  />
-                ),
+                headerShown: false,
+                headerTransparent: true,
+                // headerTitle: props => <></>,
+                // headerBackground: () => <></>,
+                // headerLeft: props => (
+                //   <Ionicons
+                //     name="md-arrow-back"
+                //     size={30}
+                //     style={{padding: 20}}
+                //     onPress={props.onPress}
+                //   />
+                // ),
               }}
               name="Login"
               component={Login}
             />
             <Stack.Screen
               options={{
-                headerTitle: props => <></>,
-                headerBackground: () => <></>,
-                headerLeft: props => (
-                  <Ionicons
-                    name="md-arrow-back"
-                    size={30}
-                    style={{padding: 20}}
-                    onPress={props.onPress}
-                  />
-                ),
+                headerShown: false,
+                headerTransparent: true,
+                // headerTitle: props => <></>,
+                // headerBackground: () => <></>,
+                // headerLeft: props => (
+                //   <Ionicons
+                //     name="md-arrow-back"
+                //     size={30}
+                //     style={{padding: 20}}
+                //     onPress={props.onPress}
+                //   />
+                // ),
               }}
               name="SignUp"
               component={SignUp}
             />
             <Stack.Screen
               options={{
-                headerTitle: props => <></>,
-                headerBackground: () => <></>,
-                headerLeft: props => (
-                  <Ionicons
-                    name="md-arrow-back"
-                    size={30}
-                    style={{padding: 20}}
-                    onPress={props.onPress}
-                  />
-                ),
+                headerShown: false,
+                headerTransparent: true,
+                // headerTitle: props => <></>,
+                // headerBackground: () => <></>,
+                // headerLeft: props => (
+                //   <Ionicons
+                //     name="md-arrow-back"
+                //     size={30}
+                //     style={{padding: 20}}
+                //     onPress={props.onPress}
+                //   />
+                // ),
               }}
               name="OtpVerify"
               component={OtpVerify}
             />
             <Stack.Screen
               options={{
-                headerTitle: props => <></>,
-                headerBackground: () => <></>,
-                headerLeft: props => (
-                  <Ionicons
-                    name="md-arrow-back"
-                    size={30}
-                    style={{padding: 20}}
-                    onPress={props.onPress}
-                  />
-                ),
+                headerShown: false,
+                headerTransparent: true,
+                // headerTitle: props => <></>,
+                // headerBackground: () => <></>,
+                // headerLeft: props => (
+                //   <Ionicons
+                //     name="md-arrow-back"
+                //     size={30}
+                //     style={{padding: 20}}
+                //     onPress={props.onPress}
+                //   />
+                // ),
               }}
               name="ForgetPassword"
               component={ForgetPassword}

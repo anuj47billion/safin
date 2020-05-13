@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
   icon: {
     padding: 10,
     marginLeft: 10,
-    fontSize: 30,
+    fontSize: 25,
   },
 });

@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
   },
   viewBody: {
     flex: 0.91,
+    backgroundColor: '#F5FBFF',
   },
   topView: {
     flex: 0.4,

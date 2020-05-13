@@ -13,15 +13,32 @@ import Octicons from 'react-native-vector-icons/Octicons';
 
 const width = Dimensions.get('window').width;
 
-const FormikInputField = ({
-  field: {...fields},
-  form: {touched, errors, ...rest},
-  secureStatus,
-  ...props
-}) => {
+const FormikInputField = props => {
   console.log('=================', props);
 
-  const position = new Animated.Value(props.value ? 1 : 0);
+  const {
+    id,
+    label,
+    field,
+    secureStatus,
+    form,
+    value,
+    handleChange,
+    type,
+    style,
+    changeSecureStatus,
+  } = props;
+
+  const {touched, errors, isSubmitting} = form;
+
+  // {
+  //   field: {...fields},
+  //   form: {touched, errors, ...rest},
+  //   secureStatus,
+  //   ...props
+  // }
+
+  const position = new Animated.Value(value ? 1 : 0);
   const [isFieldActive, setIsFieldActive] = useState(false);
 
   const handleBlur = () => {
@@ -53,41 +70,41 @@ const FormikInputField = ({
     };
   };
 
-  if (props.id === 'password' || props.id === 'babyWeight') {
+  if (id === 'password' || id === 'babyWeight' || id === 'confirmpassword') {
     return (
       <View>
         <Animated.Text
           style={[styles.titleStyles, returnAnimatedTitleStyles()]}>
-          {props.label}
+          {label}
         </Animated.Text>
         <View style={styles.textinputView}>
           <View style={styles.inputView}>
             <TextInput
-              style={props.style}
-              onChangeText={props.handleChange}
+              style={style}
+              onChangeText={handleChange}
               onBlur={handleBlur}
               onFocus={handleFocus}
-              value={props.value}
+              value={value}
               secureTextEntry={secureStatus}
-              keyboardType={props.type}
+              keyboardType={type}
               // {...props}
             />
           </View>
           <View style={styles.secureIconView}>
-            {props.id === 'password' && (
+            {(id === 'password' || id === 'confirmpassword') && (
               <Octicons
                 name={secureStatus ? 'eye' : 'eye-closed'}
                 size={22}
-                onPress={() => props.changeSecureStatus(fields.name)}
+                onPress={() => changeSecureStatus(field.name)}
               />
             )}
-            {props.id === 'babyWeight' && (
+            {id === 'babyWeight' && (
               <Text style={{fontWeight: '700', fontSize: 18}}>lbs</Text>
             )}
           </View>
         </View>
         <ErrorMessage
-          name={fields.name}
+          name={field.name}
           render={msg => <Text style={{color: 'red'}}>{msg}</Text>}
         />
       </View>
@@ -97,20 +114,20 @@ const FormikInputField = ({
   return (
     <View>
       <Animated.Text style={[styles.titleStyles, returnAnimatedTitleStyles()]}>
-        {props.label}
+        {label}
       </Animated.Text>
       <TextInput
-        style={props.style}
-        onChangeText={props.handleChange}
+        style={style}
+        onChangeText={handleChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
-        value={props.value}
-        secureTextEntry={props.type === 'password'}
-        keyboardType={props.type}
+        value={value}
+        secureTextEntry={type === 'password'}
+        keyboardType={type}
         // {...props}
       />
       <ErrorMessage
-        name={fields.name}
+        name={field.name}
         render={msg => <Text style={{color: 'red'}}>{msg}</Text>}
       />
     </View>

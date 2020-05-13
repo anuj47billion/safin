@@ -8,8 +8,11 @@ import {
   TextInput,
   TouchableOpacity,
   Dimensions,
+  Image,
 } from 'react-native';
-import {Formik} from 'formik';
+import {Formik, Field} from 'formik';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FormikInputField from '../../components/forms/formikFields/FormikInputField';
 
 const width = Dimensions.get('window').width;
 
@@ -18,42 +21,62 @@ const ForgetPassword = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.topView}>
-        <Text style={{fontSize: 35}}>Forget Password</Text>
+      <View style={styles.imageTopCorner}>
+        <Image source={require('../../assets/image/topRightCorner.png')} />
       </View>
-      <Formik
-        initialValues={{phoneNumber: '', password: ''}}
-        onSubmit={values => console.log(values)}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
-          <>
-            <View style={styles.centerView}>
-              <View style={{padding: 20}}>
-                <View>
-                  <Text>Phone Number</Text>
-                  <TextInput
-                    onChangeText={handleChange('phoneNumber')}
-                    onBlur={handleBlur('phoneNumber')}
-                    value={values.phoneNumber}
-                    style={{
-                      borderBottomWidth: 1,
-                      fontSize: 18,
-                      marginBottom: 30,
-                      marginTop: -10,
-                    }}
-                  />
+      <View style={styles.bodyView}>
+        <View style={{flex: 0.09, padding: 20}}>
+          <AntDesign
+            onPress={() => navigation.goBack()}
+            name="arrowleft"
+            size={35}
+          />
+        </View>
+        <View style={{flex: 0.9, marginTop: 15}}>
+          <View style={styles.topView}>
+            <Text style={{fontSize: 35}}>Forget Password</Text>
+          </View>
+          <Formik
+            initialValues={{phoneNumber: ''}}
+            onSubmit={values => {
+              navigation.push('OtpVerify');
+            }}>
+            {({handleChange, handleBlur, handleSubmit, values}) => (
+              <>
+                <View style={styles.centerView}>
+                  <View style={{padding: 20}}>
+                    <View>
+                      <Field
+                        id="phoneNumber"
+                        name="phoneNumber"
+                        type="numeric"
+                        value={values.phoneNumber}
+                        component={FormikInputField}
+                        handleChange={handleChange('phoneNumber')}
+                        handleBlur={handleBlur('phoneNumber')}
+                        label="Phone Number"
+                        // placeholder="Phone Number"
+                        style={{
+                          borderBottomWidth: 1,
+                          fontSize: 18,
+                          // marginBottom: 30,
+                        }}
+                      />
+                    </View>
+                  </View>
                 </View>
-              </View>
-            </View>
-            <View style={styles.bottomView}>
-              <TouchableOpacity onPress={() => navigation.push('OtpVerify')}>
-                <View style={styles.buttonContainer}>
-                  <Text style={styles.signText}>Reset</Text>
+                <View style={styles.bottomView}>
+                  <TouchableOpacity onPress={handleSubmit}>
+                    <View style={styles.buttonContainer}>
+                      <Text style={styles.signText}>Reset</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
-            </View>
-          </>
-        )}
-      </Formik>
+              </>
+            )}
+          </Formik>
+        </View>
+      </View>
     </View>
   );
 };
@@ -63,7 +86,13 @@ export default ForgetPassword;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
+    position: 'relative',
+    backgroundColor: '#fff',
+  },
+  imageTopCorner: {
+    position: 'absolute',
+    right: 0,
   },
   topView: {
     flex: 0.2,
@@ -88,5 +117,9 @@ const styles = StyleSheet.create({
   signText: {
     color: '#fff',
     fontSize: 18,
+  },
+  bodyView: {
+    width: width,
+    flex: 1,
   },
 });

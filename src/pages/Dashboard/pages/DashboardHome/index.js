@@ -39,11 +39,14 @@ const DashboardHome = props => {
                   style={{
                     borderWidth: 3,
                     borderColor: '#fff',
-                    padding: 55,
-                    borderRadius: 200,
-                    alignItems: 'center'
+                    // padding: 55,
+                    width: width * 0.55,
+                    height: width * 0.55,
+                    borderRadius: 80,
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}>
-                  <Text style={{color: '#fff'}}>Tom's Health</Text>
+                  <Text style={{color: '#fff'}}>Baby Tom's vitals was</Text>
                   <Text style={{color: '#fff', fontSize: 30}}>Perfect</Text>
                 </View>
               </TouchableOpacity>
@@ -52,26 +55,33 @@ const DashboardHome = props => {
         </View>
         <View style={styles.bottomView}>
           <View style={styles.detailsView}>
-            <View style={styles.rowDetailView}>
-              <Entypo name="heart" size={25} />
-              <Text>120 BPM</Text>
-            </View>
-            <View style={styles.rowDetailView}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push('App', {
+                  screen: 'Dashboard',
+                  goToInsideScreen: 'BodyTemperature',
+                });
+              }}
+              style={styles.rowDetailView}>
               <FontAwesome5 name="temperature-low" size={25} />
               <Text>100.8 F</Text>
-            </View>
-            <View style={styles.rowDetailView}>
-              <Text>95%</Text>
-            </View>
-          </View>
-          <View style={[styles.detailsView, styles.marginView]}>
+            </TouchableOpacity>
             <View style={styles.rowDetailView}>
               <Text>20/min</Text>
             </View>
             <View style={styles.rowDetailView}>
               <Text>Back</Text>
             </View>
-            <View style={styles.rowDetailView}>
+          </View>
+          <View style={[styles.detailsView, styles.marginView]}>
+            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+              <Entypo name="heart" size={25} />
+              <Text>120 BPM</Text>
+            </View>
+            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+              <Text>95%</Text>
+            </View>
+            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
               <FontAwesome name="bed" size={25} />
               <Text>Soft</Text>
             </View>
@@ -91,6 +101,7 @@ const styles = StyleSheet.create({
   viewBody: {
     flex: 0.91,
     flexDirection: 'column',
+    backgroundColor: '#F5FBFF',
   },
   topView: {
     flex: 0.55,
@@ -133,7 +144,7 @@ const styles = StyleSheet.create({
     // padding: 60,
     marginTop: -140,
     backgroundColor: '#22D78A',
-    borderRadius: 200,
+    borderRadius: 80,
     borderColor: '#22D78A',
   },
   marginView: {

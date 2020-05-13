@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   Dimensions,
+  Image,
 } from 'react-native';
 import SignUpForm from './components/SignUpForm';
 import {Formik} from 'formik';
@@ -29,7 +30,42 @@ const SignUp = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.topView}>
+      <View style={styles.imageTopCorner}>
+        <Image source={require('../../assets/image/topRightCorner.png')} />
+      </View>
+      <View style={styles.bodyView}>
+        <View style={{flex: 0.09, padding: 20}}>
+          <AntDesign
+            onPress={() => navigation.goBack()}
+            name="arrowleft"
+            size={35}
+          />
+        </View>
+        <View style={{flex: 0.91}}>
+          <View style={styles.topView}>
+            <Text style={{fontSize: 35}}>Sign Up</Text>
+          </View>
+          <Formik
+            initialValues={{phoneNumber: '', password: '', confirmpassword: ''}}
+            validationSchema={validationSchema}
+            onSubmit={values => {
+              alert(JSON.stringify(values));
+              navigation.push('OtpVerify');
+            }}>
+            {({handleChange, handleBlur, handleSubmit, values}) => (
+              <SignUpForm
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                handleSubmit={handleSubmit}
+                values={values}
+                navigation={navigation}
+              />
+            )}
+          </Formik>
+        </View>
+      </View>
+
+      {/* <View style={styles.topView}>
         <Text style={{fontSize: 35}}>Sign Up</Text>
       </View>
       <Formik
@@ -48,7 +84,7 @@ const SignUp = props => {
             navigation={navigation}
           />
         )}
-      </Formik>
+      </Formik> */}
     </View>
   );
 };
@@ -58,11 +94,21 @@ export default SignUp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
+    position: 'relative',
+    backgroundColor: '#fff',
+  },
+  imageTopCorner: {
+    position: 'absolute',
+    right: 0,
   },
   topView: {
     flex: 0.2,
     justifyContent: 'center',
     paddingLeft: 20,
+  },
+  bodyView: {
+    width: width,
+    flex: 1,
   },
 });

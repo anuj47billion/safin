@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import DashboardHome from './pages/DashboardHome';
 import DashboardWarning from './pages/DashboardWarning';
 import DashboardAttention from './pages/DashboardAttention';
+import BodyTemperature from './pages/BodyTemperature';
 
 const Stack = createStackNavigator();
 
@@ -41,6 +42,14 @@ const Dashboard = props => {
         }}
         name="DashboardAttention"
         component={DashboardAttention}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="BodyTemperature"
+        component={BodyTemperature}
       />
     </Stack.Navigator>
   );

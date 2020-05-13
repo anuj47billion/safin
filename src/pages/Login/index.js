@@ -8,45 +8,61 @@ import {
   TextInput,
   TouchableOpacity,
   Dimensions,
+  Image,
 } from 'react-native';
 import LoginForm from './components/LoginForm';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const width = Dimensions.get('window').width;
 
 const validationSchema = Yup.object({
-  phoneNumber: Yup.string().required("This field is required"),
-  password: Yup.string().required("This field is required")
-})
+  phoneNumber: Yup.string().required('This field is required'),
+  password: Yup.string().required('This field is required'),
+});
 
 const Login = props => {
   const {navigation} = props;
 
   return (
     <View style={styles.container}>
-      <View style={styles.topView}>
-        <Text style={{fontSize: 35}}>Sign In</Text>
+      <View style={styles.imageTopCorner}>
+        <Image source={require('../../assets/image/topRightCorner.png')} />
       </View>
-      <Formik
-        initialValues={{phoneNumber: '', password: ''}}
-        validationSchema={validationSchema}
-        onSubmit={values => {
-          alert(JSON.stringify(values));
-          navigation.push('OtpVerify');
-        }}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
-          <>
-            <LoginForm
-              handleChange={handleChange}
-              handleBlur={handleBlur}
-              handleSubmit={handleSubmit}
-              values={values}
-              navigation={navigation}
-            />
-          </>
-        )}
-      </Formik>
+      <View style={styles.bodyView}>
+        <View style={{flex: 0.09, padding: 20}}>
+          <AntDesign
+            onPress={() => navigation.goBack()}
+            name="arrowleft"
+            size={35}
+          />
+        </View>
+        <View style={{flex: 0.91}}>
+          <View style={styles.topView}>
+            <Text style={{fontSize: 35}}>Sign In</Text>
+          </View>
+          <Formik
+            initialValues={{phoneNumber: '', password: ''}}
+            validationSchema={validationSchema}
+            onSubmit={values => {
+              alert(JSON.stringify(values));
+              navigation.push('OtpVerify');
+            }}>
+            {({handleChange, handleBlur, handleSubmit, values}) => (
+              <>
+                <LoginForm
+                  handleChange={handleChange}
+                  handleBlur={handleBlur}
+                  handleSubmit={handleSubmit}
+                  values={values}
+                  navigation={navigation}
+                />
+              </>
+            )}
+          </Formik>
+        </View>
+      </View>
     </View>
   );
 };
@@ -56,7 +72,13 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
+    position: 'relative',
+    backgroundColor: '#fff',
+  },
+  imageTopCorner: {
+    position: 'absolute',
+    right: 0,
   },
   topView: {
     flex: 0.2,
@@ -81,5 +103,9 @@ const styles = StyleSheet.create({
   signText: {
     color: '#fff',
     fontSize: 18,
+  },
+  bodyView: {
+    width: width,
+    flex: 1,
   },
 });

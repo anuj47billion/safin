@@ -26,10 +26,13 @@ const Drawer = createDrawerNavigator();
 const Tabs = params => {
   return (
     <Tab.Navigator
-      // initialRouteName={
-      //   params.route.params ? params.route.params.screenName : 'Profile'
-      // }
-      initialRouteName="Settings">
+      initialRouteName={
+        params.route.params ? params.route.params.screenName : 'Profile'
+      }
+      tabBarOptions={{
+        activeTintColor: '#7894B0',
+        inactiveTintColor: '#80D5DC',
+      }}>
       <Tab.Screen
         name="Dashboard"
         component={Dashboard}
@@ -39,7 +42,7 @@ const Tabs = params => {
         }}
         options={{
           tabBarLabel: 'Dashboard',
-          tabBarIcon: ({color, size}) => (
+          tabBarIcon: ({color, size, focused}) => (
             <AntDesign name="home" color={color} size={size} />
           ),
         }}
@@ -94,9 +97,9 @@ const CustomDrawerContent = props => {
     <>
       <View style={styles.titleView}>
         <Text style={{color: '#fff', fontSize: 15}}>Welcome</Text>
-        <Text style={{color: '#fff', fontSize: 25}}>Test User</Text>
+        <Text style={{color: '#fff', fontSize: 25}}>Tom</Text>
       </View>
-      <DrawerContentScrollView {...props}>
+      <DrawerContentScrollView {...props} style={{backgroundColor: '#F5FBFF'}}>
         {state.routes.length > 0 &&
           state.routes.map((route, index) => {
             return (
@@ -147,6 +150,10 @@ const CustomDrawerContent = props => {
             );
           })}
       </DrawerContentScrollView>
+      <View style={{backgroundColor: '#F5FBFF', padding: 30}}>
+        <Text style={{fontWeight: '700'}}>SAFIN</Text>
+        <Text style={{fontWeight: '700'}}>Version 1.1.1</Text>
+      </View>
     </>
   );
 };

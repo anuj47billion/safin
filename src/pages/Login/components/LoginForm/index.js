@@ -67,7 +67,7 @@ const LoginForm = props => {
           </View>
           <View style={{marginTop: 30}}>
             <TouchableOpacity onPress={() => navigation.push('ForgetPassword')}>
-              <Text style={{color: '#0081f2', fontSize: 16}}>
+              <Text style={{color: '#1FC2CB', fontSize: 16}}>
                 Forget Password
               </Text>
             </TouchableOpacity>

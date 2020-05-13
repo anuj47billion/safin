@@ -12,7 +12,7 @@ import Header from '../../../../common/Header';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import LineChart from '../../../Weight/pages/WeightComparison/line-chart';
+import LineChart from '../../../../components/line-chart/line-chart';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
