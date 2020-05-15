@@ -8,6 +8,10 @@ import DashboardHome from './pages/DashboardHome';
 import DashboardWarning from './pages/DashboardWarning';
 import DashboardAttention from './pages/DashboardAttention';
 import BodyTemperature from './pages/BodyTemperature';
+import BodyTemperatureLandscape from './pages/BodyTemperature/BodyTemperatureLandscape';
+import Breathing from './pages/Breathing';
+import BreathingNotifications from './pages/Breathing/BreathingNotifications';
+import BodyTemperatureNotifications from './pages/BodyTemperature/BodyTemperatureNotifications';
 
 const Stack = createStackNavigator();
 
@@ -50,6 +54,38 @@ const Dashboard = props => {
         }}
         name="BodyTemperature"
         component={BodyTemperature}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="BodyTemperatureLandscape"
+        component={BodyTemperatureLandscape}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="Breathing"
+        component={Breathing}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="BreathingNotifications"
+        component={BreathingNotifications}
+      />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+          headerTransparent: true,
+        }}
+        name="BodyTemperatureNotifications"
+        component={BodyTemperatureNotifications}
       />
     </Stack.Navigator>
   );

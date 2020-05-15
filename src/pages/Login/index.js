@@ -46,7 +46,6 @@ const Login = props => {
             initialValues={{phoneNumber: '', password: ''}}
             validationSchema={validationSchema}
             onSubmit={values => {
-              alert(JSON.stringify(values));
               navigation.push('OtpVerify');
             }}>
             {({handleChange, handleBlur, handleSubmit, values}) => (

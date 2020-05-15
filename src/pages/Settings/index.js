@@ -29,7 +29,7 @@ const Settings = props => {
   return (
     <View style={styles.container}>
       <Header title="Settings" navigation={navigation} />
-      <View style={styles.viewBody}>
+      <ScrollView style={styles.viewBody}>
         <View>
           <View>
             <Text style={{fontSize: 18, color: '#1FC2CB'}}>Alerts</Text>
@@ -159,7 +159,7 @@ const Settings = props => {
               />
             </View>
           </View>
-          <View style={styles.toggleParentView}>
+          <View style={[styles.toggleParentView, {paddingBottom: 50}]}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <FontAwesome name="bed" size={22} />
               <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
@@ -175,7 +175,7 @@ const Settings = props => {
             </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };

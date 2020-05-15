@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
@@ -19,11 +19,21 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
+import Orientation from 'react-native-orientation';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const Tabs = params => {
+  const [orientationType, setOrientationType] = useState('');
+
+  useEffect(() => {
+    Orientation.getOrientation((_err, orientation) => {
+      console.log('------------------------', orientation);
+      setOrientationType(orientation);
+    });
+  }, []);
+
   return (
     <Tab.Navigator
       initialRouteName={
@@ -45,6 +55,7 @@ const Tabs = params => {
           tabBarIcon: ({color, size, focused}) => (
             <AntDesign name="home" color={color} size={size} />
           ),
+          tabBarVisible: orientationType === 'LANDSCAPE' ? false : true,
         }}
       />
       <Tab.Screen

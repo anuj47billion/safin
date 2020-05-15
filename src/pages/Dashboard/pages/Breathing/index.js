@@ -16,7 +16,7 @@ import Orientation from 'react-native-orientation';
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-const BodyTemperature = props => {
+const Breathing = props => {
   const {navigation} = props;
   const [widthCount, setWidthCount] = useState(0);
 
@@ -59,17 +59,13 @@ const BodyTemperature = props => {
   const onDotPress = (x, i) => {
     navigation.push('App', {
       screen: 'Dashboard',
-      goToInsideScreen: 'BodyTemperatureNotifications',
+      goToInsideScreen: 'BreathingNotifications',
     });
   }
 
   return (
     <View style={styles.container}>
-      <Header
-        title="Body Temperature"
-        type="bodyTemp"
-        navigation={navigation}
-      />
+      <Header title="Breathing" type="breathing" navigation={navigation} />
       <View style={styles.viewBody}>
         <ScrollView horizontal={true}>
           <TouchableOpacity
@@ -93,31 +89,26 @@ const BodyTemperature = props => {
                 ],
                 datasets: [
                   {
-                    data: [
-                      98,
-                      98.5,
-                      99,
-                      97,
-                      100,
-                      99.5,
-                      98,
-                      99,
-                      100,
-                      100.9,
-                      99.5,
-                      98,
-                    ],
-                    shadowColor: '#2B9CE2',
+                    data: [25, 30, 32, 38, 40, 33, 55, 40, 30, 38, 45, 42],
+                    shadowColor: '#CAA2FA',
                     r: '10',
                     strokeWidth: '2',
                     stroke: '#FD9068',
                     dotFullColor: '#FD9068',
                   },
+                  // {
+                  //   data: [0, 0, 0, 38, 40, 33, 0, 0, 0, 0, 0, 0],
+                  //   shadowColor: '##B56BF7',
+                  //   r: '10',
+                  //   strokeWidth: '2',
+                  //   stroke: '#FD9068',
+                  //   dotFullColor: '#FD9068',
+                  // },
                 ],
               }}
               width={width * widthCount} // from react-native
               height={height * 0.95}
-              yAxisSuffix="bpm"
+              yAxisSuffix="pm"
               yAxisInterval={1} // optional, defaults to 1
               withInnerLines={false}
               chartConfig={{
@@ -152,7 +143,7 @@ const BodyTemperature = props => {
   );
 };
 
-export default BodyTemperature;
+export default Breathing;
 
 const styles = StyleSheet.create({
   container: {

@@ -9,6 +9,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Button,
+  Image,
 } from 'react-native';
 import Header from '../../../../common/Header';
 
@@ -45,26 +46,50 @@ const DashboardAttention = props => {
         </View>
         <View style={styles.centerView}>
           <View style={styles.detailsView}>
-            <View style={styles.rowDetailView}>
-              <Entypo name="heart" size={25} />
-              <Text>120 BPM</Text>
-            </View>
-            <View style={[styles.rowDetailView, {backgroundColor: '#FD9068'}]}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push('App', {
+                  screen: 'Dashboard',
+                  goToInsideScreen: 'Breathing',
+                });
+              }}
+              style={[styles.rowDetailView, {backgroundColor: '#FF808E'}]}>
+              <Image
+                source={require('../../../../assets/image/lungs-solid-1.png')}
+              />
+              <Text style={{color: '#fff'}}>20/min</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push('App', {
+                  screen: 'Dashboard',
+                  goToInsideScreen: 'BodyTemperature',
+                });
+              }}
+              style={[styles.rowDetailView, {backgroundColor: '#FD9068'}]}>
               <FontAwesome5 name="temperature-low" color="#fff" size={25} />
               <Text style={{color: '#fff'}}>100.8 F</Text>
-            </View>
-            <View style={[styles.rowDetailView, {backgroundColor: '#FF808E'}]}>
-              <Text style={{color: '#fff'}}>95%</Text>
+            </TouchableOpacity>
+            <View style={styles.rowDetailView}>
+              <Image
+                source={require('../../../../assets/image/back-solid.png')}
+              />
+              <Text>Back</Text>
             </View>
           </View>
           <View style={styles.detailsView}>
-            <View style={styles.rowDetailView}>
-              <Text>20/min</Text>
+            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+              <Entypo name="heart" size={25} />
+              <Text>120 BPM</Text>
             </View>
-            <View style={styles.rowDetailView}>
-              <Text>Back</Text>
+            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={{fontSize: 25, fontWeight: '700'}}>O</Text>
+                <Text style={{fontWeight: '700'}}>2</Text>
+              </View>
+              <Text>95%</Text>
             </View>
-            <View style={styles.rowDetailView}>
+            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
               <FontAwesome name="bed" size={25} />
               <Text>Soft</Text>
             </View>

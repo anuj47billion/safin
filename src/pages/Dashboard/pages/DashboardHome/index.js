@@ -59,6 +59,20 @@ const DashboardHome = props => {
               onPress={() => {
                 navigation.push('App', {
                   screen: 'Dashboard',
+                  goToInsideScreen: 'Breathing',
+                });
+              }}
+              style={styles.rowDetailView}>
+              <Image
+                source={require('../../../../assets/image/lungs-solid.png')}
+              />
+              <Text>20/min</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => {
+                navigation.push('App', {
+                  screen: 'Dashboard',
                   goToInsideScreen: 'BodyTemperature',
                 });
               }}
@@ -66,10 +80,11 @@ const DashboardHome = props => {
               <FontAwesome5 name="temperature-low" size={25} />
               <Text>100.8 F</Text>
             </TouchableOpacity>
+
             <View style={styles.rowDetailView}>
-              <Text>20/min</Text>
-            </View>
-            <View style={styles.rowDetailView}>
+              <Image
+                source={require('../../../../assets/image/back-solid.png')}
+              />
               <Text>Back</Text>
             </View>
           </View>
@@ -79,6 +94,10 @@ const DashboardHome = props => {
               <Text>120 BPM</Text>
             </View>
             <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={{fontSize: 25, fontWeight: '700'}}>O</Text>
+                <Text style={{fontWeight: '700'}}>2</Text>
+              </View>
               <Text>95%</Text>
             </View>
             <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>

@@ -20,16 +20,16 @@ const Summary = props => {
           headerShown: false,
           headerTransparent: true,
         }}
-        name="WeeklySummary"
-        component={WeeklySummary}
+        name="WeeklyChart"
+        component={WeeklyChart}
       />
       <Stack.Screen
         options={{
           headerShown: false,
           headerTransparent: true,
         }}
-        name="WeeklyChart"
-        component={WeeklyChart}
+        name="WeeklySummary"
+        component={WeeklySummary}
       />
     </Stack.Navigator>
   );

@@ -60,19 +60,19 @@ const WeeklyChart = props => {
                   borderTopRightRadius: 10,
                 }}>
                 <View style={{flexDirection: 'row', padding: 12}}>
-                  <Entypo name="heart-outlined" color="#fff" size={25} />
+                  <Image
+                    source={require('../../../../assets/image/lungs-solid-1.png')}
+                  />
                   <Text style={{color: '#fff', marginLeft: 5, fontSize: 16}}>
-                    Heart Rate
+                    Breathing
                   </Text>
-                  <Text style={{color: '#fff', marginLeft: 5}}>
-                    (90-160 bpm)
-                  </Text>
+                  <Text style={{color: '#fff', marginLeft: 5}}>(20-60/pm)</Text>
                 </View>
               </View>
               <View style={{backgroundColor: '#fff'}}>
                 <Text
-                  style={{fontWeight: '700', marginLeft: 5, marginBottom: 5}}>
-                  bpm
+                  style={{fontWeight: '700', marginLeft: 10, marginBottom: 5}}>
+                  pm
                 </Text>
                 <LineChart
                   // fromZero={true}
@@ -80,17 +80,19 @@ const WeeklyChart = props => {
                     labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                     datasets: [
                       {
-                        data: [130, 170, 110, 90, 100, 80, 120],
+                        data: [30, 45, 40, 42, 60, 40, 42],
                       },
                       {
-                        data: [90, 90, 90, 90, 90, 90, 90],
+                        data: [20, 20, 20, 20, 20, 20, 20],
                         withDots: false,
                         color: () => '#C7EBFF',
+                        strokeWidth: 3,
                       },
                       {
-                        data: [160, 160, 160, 160, 160, 160, 160],
+                        data: [60, 60, 60, 60, 60, 60, 60],
                         withDots: false,
                         color: () => '#C7EBFF',
+                        strokeWidth: 3,
                       },
                     ],
                   }}
@@ -135,7 +137,7 @@ const WeeklyChart = props => {
                     color="#fff"
                     size={25}
                   />
-                  <Text style={{color: '#fff', marginLeft: 5, fontSize: 16}}>
+                  <Text style={{color: '#fff', marginLeft: 10, fontSize: 16}}>
                     Body Temp
                   </Text>
                   <Text style={{color: '#fff', marginLeft: 5}}>
@@ -196,75 +198,6 @@ const WeeklyChart = props => {
               </View>
             </View>
 
-            <View style={{marginTop: 10}}>
-              <View
-                style={{
-                  backgroundColor: '#A44DFA',
-                  borderTopLeftRadius: 10,
-                  borderTopRightRadius: 10,
-                }}>
-                <View style={{flexDirection: 'row', padding: 12}}>
-                  <Entypo name="heart-outlined" color="#fff" size={25} />
-                  <Text style={{color: '#fff', marginLeft: 5, fontSize: 16}}>
-                    Heart Rate
-                  </Text>
-                  <Text style={{color: '#fff', marginLeft: 5}}>
-                    (90-160 bpm)
-                  </Text>
-                </View>
-              </View>
-              <View style={{backgroundColor: '#fff'}}>
-                <Text
-                  style={{fontWeight: '700', marginLeft: 5, marginBottom: 5}}>
-                  bpm
-                </Text>
-                <LineChart
-                  fromZero={true}
-                  data={{
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [
-                      {
-                        data: [130, 170, 110, 90, 100, 80, 120],
-                      },
-                      {
-                        data: [90, 90, 90, 90, 90, 90, 90],
-                        withDots: false,
-                        color: () => '#C7EBFF',
-                      },
-                      {
-                        data: [160, 160, 160, 160, 160, 160, 160],
-                        withDots: false,
-                        color: () => '#C7EBFF',
-                      },
-                    ],
-                  }}
-                  withInnerLines={true}
-                  width={width}
-                  height={height * 0.27}
-                  chartConfig={{
-                    backgroundGradientFrom: '#fff',
-                    backgroundGradientTo: '#fff',
-                    fillShadowGradient: '#00d4f9',
-                    decimalPlaces: 0,
-                    color: (opacity = 1) => 'rgba(255, 255, 255, 255)',
-                    labelColor: (opacity = 1) => '#000',
-                    propsForDots: {
-                      r: '4',
-                      strokeWidth: '2',
-                      stroke: '#8DE0E5',
-                    },
-                  }}
-                  style={{
-                    elevation: 4,
-                    shadowOffset: {width: 5, height: 5},
-                    shadowColor: 'grey',
-                    shadowOpacity: 0.5,
-                    shadowRadius: 10,
-                  }}
-                  bezier
-                />
-              </View>
-            </View>
           </ScrollView>
         </View>
       </View>
