@@ -16,6 +16,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const DashboardHome = props => {
   const {navigation} = props;
@@ -89,18 +90,30 @@ const DashboardHome = props => {
             </View>
           </View>
           <View style={[styles.detailsView, styles.marginView]}>
-            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+            <View
+              style={[
+                styles.bottomRowDetailView,
+                {backgroundColor: '#edeff0'},
+              ]}>
               <Entypo name="heart" size={25} />
               <Text>120 BPM</Text>
             </View>
-            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+            <View
+              style={[
+                styles.bottomRowDetailView,
+                {backgroundColor: '#edeff0'},
+              ]}>
               <View style={{flexDirection: 'row'}}>
                 <Text style={{fontSize: 25, fontWeight: '700'}}>O</Text>
                 <Text style={{fontWeight: '700'}}>2</Text>
               </View>
               <Text>95%</Text>
             </View>
-            <View style={[styles.rowDetailView, {backgroundColor: '#EFF5FA'}]}>
+            <View
+              style={[
+                styles.bottomRowDetailView,
+                {backgroundColor: '#edeff0'},
+              ]}>
               <FontAwesome name="bed" size={25} />
               <Text>Soft</Text>
             </View>
@@ -135,8 +148,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   rowDetailView: {
-    width: width * 0.25,
-    height: width * 0.25,
+    width: height * 0.127,
+    height: height * 0.127,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
@@ -146,6 +159,14 @@ const styles = StyleSheet.create({
     shadowColor: 'grey',
     shadowOpacity: 0.5,
     shadowRadius: 10,
+  },
+  bottomRowDetailView: {
+    width: height * 0.127,
+    height: height * 0.127,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
   },
   topCutView: {
     flex: 0.6,

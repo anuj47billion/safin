@@ -35,7 +35,7 @@ class LineChart extends AbstractChart {
     if (i === 2 || i === 5) {
       const {propsForDots = {}} = chartConfig;
       return {r: '4', ...propsForDots};
-    } 
+    }
     // else {
     //   return {r: '4', ...defaultDotProps};
     // }
@@ -67,7 +67,6 @@ class LineChart extends AbstractChart {
       }
 
       dataset.data.forEach((x, i) => {
-        console.log('=============', x);
         if (hidePointsAtIndex.includes(i)) {
           return;
         }
@@ -451,10 +450,10 @@ class LineChart extends AbstractChart {
         <Path
           key={index}
           d={d}
-          // fill={`url(#fillShadowGradient${
-          //   useColorFromDataset ? `_${index}` : ''
-          // })`}
-          fill={dataset.shadowColor}
+          fill={`url(#fillShadowGradient${
+            useColorFromDataset ? `_${index}` : ''
+          })`}
+         // fill={dataset.shadowColor}
           strokeWidth={0}
         />
       );
@@ -506,7 +505,7 @@ class LineChart extends AbstractChart {
     const {labels = []} = data;
     const {
       borderRadius = 0,
-      paddingTop = 16,
+      paddingTop = 0,
       paddingRight = 64,
       margin = 0,
       marginRight = 0,

@@ -18,13 +18,13 @@ const Settings = props => {
   const {navigation} = props;
   const [audibleAlert, setAudibleAlert] = useState(false);
   const [phoneAlert, setPhoneAlert] = useState(false);
-  const [vitalDefaults, setVitalDefaults] = useState(false);
-  const [heartRate, setHeartRate] = useState(false);
-  const [bodyTemp, setBodyTemp] = useState(false);
-  const [oxygenLevel, setOxygenLevel] = useState(false);
-  const [breathing, setBreathing] = useState(false);
-  const [sleepingPosition, setSleepingPosition] = useState(false);
-  const [mattress, setMattress] = useState(false);
+  const [vitalDefaults, setVitalDefaults] = useState(true);
+  const [heartRate, setHeartRate] = useState(true);
+  const [bodyTemp, setBodyTemp] = useState(true);
+  const [oxygenLevel, setOxygenLevel] = useState(true);
+  const [breathing, setBreathing] = useState(true);
+  const [sleepingPosition, setSleepingPosition] = useState(true);
+  const [mattress, setMattress] = useState(true);
 
   return (
     <View style={styles.container}>
@@ -64,7 +64,14 @@ const Settings = props => {
               <ToggleSwitch
                 isOn={vitalDefaults}
                 size="large"
-                onToggle={isOn => setVitalDefaults(!vitalDefaults)}
+                onToggle={isOn => {
+                  setVitalDefaults(!vitalDefaults);
+                  if (isOn) {
+                    setBreathing(true);
+                    setBodyTemp(true);
+                    setSleepingPosition(true);
+                  }
+                }}
               />
             </View>
           </View>
@@ -75,17 +82,18 @@ const Settings = props => {
           </View>
           <View style={styles.toggleParentView}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <AntDesign name="hearto" size={20} />
+              <Image source={require('../../assets/image/lungs-solid.png')} />
               <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
-                Heart Rate
+                Breathing
               </Text>
-              <Text style={{fontSize: 13}}>(90-160 bpm)</Text>
+              <Text style={{fontSize: 13}}>(20-60/pm)</Text>
             </View>
             <View>
               <ToggleSwitch
-                isOn={heartRate}
+                isOn={breathing}
                 size="large"
-                onToggle={isOn => setHeartRate(!heartRate)}
+                onToggle={isOn => setBreathing(!breathing)}
+                disabled={vitalDefaults}
               />
             </View>
           </View>
@@ -102,51 +110,13 @@ const Settings = props => {
                 isOn={bodyTemp}
                 size="large"
                 onToggle={isOn => setBodyTemp(!bodyTemp)}
+                disabled={vitalDefaults}
               />
             </View>
           </View>
           <View style={styles.toggleParentView}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text
-                style={{fontSize: 20, fontStyle: 'italic', fontWeight: '700'}}>
-                O
-              </Text>
-              <Text
-                style={{fontSize: 14, fontStyle: 'italic', fontWeight: '700'}}>
-                2
-              </Text>
-              <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
-                Oxygen Level
-              </Text>
-              <Text style={{fontSize: 13}}>(95-100%)</Text>
-            </View>
-            <View>
-              <ToggleSwitch
-                isOn={oxygenLevel}
-                size="large"
-                onToggle={isOn => setOxygenLevel(!oxygenLevel)}
-              />
-            </View>
-          </View>
-          <View style={styles.toggleParentView}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text />
-              <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
-                Breathing
-              </Text>
-              <Text style={{fontSize: 13}}>(20-60/pm)</Text>
-            </View>
-            <View>
-              <ToggleSwitch
-                isOn={breathing}
-                size="large"
-                onToggle={isOn => setBreathing(!breathing)}
-              />
-            </View>
-          </View>
-          <View style={styles.toggleParentView}>
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text />
+              <Image source={require('../../assets/image/back-solid.png')} />
               <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
                 Sleeping Position
               </Text>
@@ -156,21 +126,95 @@ const Settings = props => {
                 isOn={sleepingPosition}
                 size="large"
                 onToggle={isOn => setSleepingPosition(!sleepingPosition)}
+                disabled={vitalDefaults}
+              />
+            </View>
+          </View>
+          <View style={styles.toggleParentView}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <AntDesign color="#CACACA" name="hearto" size={20} />
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '700',
+                  marginLeft: 12,
+                  color: '#CACACA',
+                }}>
+                Heart Rate
+              </Text>
+              <Text style={{fontSize: 13, color: '#CACACA'}}>(90-160 bpm)</Text>
+            </View>
+            <View>
+              <ToggleSwitch
+                isOn={vitalDefaults}
+                size="large"
+                onToggle={isOn => setHeartRate(!heartRate)}
+                disabled={true}
+                onColor="#BCECCF"
+              />
+            </View>
+          </View>
+          <View style={styles.toggleParentView}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontStyle: 'italic',
+                  fontWeight: '700',
+                  color: '#CACACA',
+                }}>
+                O
+              </Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontStyle: 'italic',
+                  fontWeight: '700',
+                  color: '#CACACA',
+                }}>
+                2
+              </Text>
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '700',
+                  marginLeft: 12,
+                  color: '#CACACA',
+                }}>
+                Oxygen Level
+              </Text>
+              <Text style={{fontSize: 13, color: '#CACACA'}}>(95-100%)</Text>
+            </View>
+            <View>
+              <ToggleSwitch
+                isOn={vitalDefaults}
+                size="large"
+                onToggle={isOn => setOxygenLevel(!oxygenLevel)}
+                disabled={true}
+                onColor="#BCECCF"
               />
             </View>
           </View>
           <View style={[styles.toggleParentView, {paddingBottom: 50}]}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <FontAwesome name="bed" size={22} />
-              <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
+              <FontAwesome name="bed" color="#CACACA" size={22} />
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontWeight: '700',
+                  marginLeft: 12,
+                  color: '#CACACA',
+                }}>
                 Firmness of Mattress
               </Text>
             </View>
             <View>
               <ToggleSwitch
-                isOn={mattress}
+                isOn={vitalDefaults}
                 size="large"
                 onToggle={isOn => setMattress(!mattress)}
+                disabled={true}
+                onColor="#BCECCF"
               />
             </View>
           </View>

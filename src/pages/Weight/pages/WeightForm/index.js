@@ -34,7 +34,10 @@ const Weight = props => {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={values => {
-            // navigation.push('App');
+            navigation.push('App', {
+              screen: 'Weight',
+              goToInsideScreen: 'weightComparison',
+            });
           }}>
           {({handleChange, handleBlur, handleSubmit, values}) => (
             <>

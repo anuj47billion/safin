@@ -14,7 +14,7 @@ const Header = props => {
     if (type === 'bodyTemp') {
       setBackgroundColor('#2B9CE2');
       setTextColor('#fff');
-    } 
+    }
     if (type === 'breathing') {
       setBackgroundColor('#A44DFA');
       setTextColor('#fff');
@@ -25,7 +25,7 @@ const Header = props => {
     <View style={[styles.container, {backgroundColor: backgroundColor}]}>
       <View style={styles.parentView}>
         <View style={styles.iconView}>
-          {(type !== 'bodyTemp' && type !== 'breathing') && (
+          {type !== 'bodyTemp' && type !== 'breathing' && (
             <TouchableOpacity
               onPress={() => {
                 navigation.toggleDrawer();
@@ -64,10 +64,34 @@ const Header = props => {
           <Text style={[styles.titleText, {color: textColor}]}>{title}</Text>
         </View>
         <View style={styles.iconView}>
-          <MaterialCommunityIcons
-            name="bell-outline"
-            style={[styles.icon, {color: textColor}]}
-          />
+          {type !== 'weightComparison' && (
+            <TouchableOpacity
+              style={{paddingLeft: 10}}
+              onPress={() => {
+                //navigation.goBack();
+              }}>
+              <MaterialCommunityIcons
+                name="bell-outline"
+                style={[styles.icon, {color: textColor}]}
+              />
+            </TouchableOpacity>
+          )}
+          {type === 'weightComparison' && (
+            <TouchableOpacity
+              style={{paddingLeft: 10}}
+              onPress={() => {
+                navigation.push('App', {
+                  screen: 'Weight',
+                  goToInsideScreen: 'WeightForm',
+                });
+              }}>
+              <AntDesign
+                style={{color: '#2be23a'}}
+                name="pluscircle"
+                size={25}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </View>

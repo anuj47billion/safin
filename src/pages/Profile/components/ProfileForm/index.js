@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Dimensions,
   Alert,
+  ScrollView,
 } from 'react-native';
 import {Field} from 'formik';
 import FormikInputField from '../../../../components/forms/formikFields/FormikInputField';
@@ -20,58 +21,60 @@ const ProfileForm = props => {
   const [date, setDate] = useState('2020-04-25');
 
   return (
-    <View style={styles.formView}>
-      <View style={styles.topView}>
-        <View style={{marginTop: 20}}>
-          <Field
-            id="babyName"
-            name="babyName"
-            type="default"
-            value={values.babyName}
-            component={FormikInputField}
-            handleChange={handleChange('babyName')}
-            handleBlur={handleBlur('babyName')}
-            label="Baby's Name"
-            // placeholder="Phone Number"
-            style={{
-              borderBottomWidth: 1,
-              fontSize: 18,
-              // marginTop: -10,
-            }}
-          />
-        </View>
-        <View style={{marginTop: 20}}>
-          <Field
-            id="birthday"
-            name="birthday"
-            value={values.birthday}
-            component={FormikDatePickerField}
-            handleChange={handleChange('birthday')}
-            handleBlur={handleBlur('birthday')}
-            label="Baby's Birthday"
-            style={{
-              borderBottomWidth: 1,
-              fontSize: 18,
-              marginTop: -10,
-            }}
-          />
-        </View>
-        <View style={{marginTop: 20}}>
-          <Field
-            id="gender"
-            name="gender"
-            type="default"
-            value={values.gender}
-            component={FormikInputField}
-            handleChange={handleChange('gender')}
-            handleBlur={handleBlur('gender')}
-            label="Gender"
-            style={{
-              borderBottomWidth: 1,
-              fontSize: 18,
-              // marginTop: -10,
-            }}
-          />
+    <ScrollView>
+      <View style={styles.formView}>
+        <View style={styles.topView}>
+          <View style={{marginTop: 20}}>
+            <Field
+              id="babyName"
+              name="babyName"
+              type="default"
+              value={values.babyName}
+              component={FormikInputField}
+              handleChange={handleChange('babyName')}
+              handleBlur={handleBlur('babyName')}
+              label="Baby's Name"
+              // placeholder="Phone Number"
+              style={{
+                borderBottomWidth: 1,
+                fontSize: 18,
+                // marginTop: -10,
+              }}
+            />
+          </View>
+          <View style={{marginTop: 20}}>
+            <Field
+              id="birthday"
+              name="birthday"
+              value={values.birthday}
+              component={FormikDatePickerField}
+              handleChange={handleChange('birthday')}
+              handleBlur={handleBlur('birthday')}
+              label="Baby's Birthday"
+              style={{
+                borderBottomWidth: 1,
+                fontSize: 18,
+                marginTop: -10,
+              }}
+            />
+          </View>
+          <View style={{marginTop: 20}}>
+            <Field
+              id="gender"
+              name="gender"
+              type="default"
+              value={values.gender}
+              component={FormikInputField}
+              handleChange={handleChange('gender')}
+              handleBlur={handleBlur('gender')}
+              label="Gender"
+              style={{
+                borderBottomWidth: 1,
+                fontSize: 18,
+                // marginTop: -10,
+              }}
+            />
+          </View>
           <View style={{marginTop: 20}}>
             <Field
               id="birthWeight"
@@ -107,15 +110,15 @@ const ProfileForm = props => {
             />
           </View>
         </View>
+        <View style={styles.bottomView}>
+          <TouchableOpacity onPress={handleSubmit}>
+            <View style={styles.buttonContainer}>
+              <Text style={styles.signText}>Save</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.bottomView}>
-        <TouchableOpacity onPress={handleSubmit}>
-          <View style={styles.buttonContainer}>
-            <Text style={styles.signText}>Save</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 

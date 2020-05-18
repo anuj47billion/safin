@@ -61,83 +61,123 @@ const Breathing = props => {
       screen: 'Dashboard',
       goToInsideScreen: 'BreathingNotifications',
     });
-  }
+  };
 
   return (
     <View style={styles.container}>
       <Header title="Breathing" type="breathing" navigation={navigation} />
       <View style={styles.viewBody}>
-        <ScrollView horizontal={true}>
-          <TouchableOpacity
-            // onPress={() => onChangeOrientation()}
-            style={{height: height, width: width * widthCount}}>
-            <LineChart
-              data={{
-                labels: [
-                  '12:00pm',
-                  '1:00pm',
-                  '2:00pm',
-                  '3:00pm',
-                  '4:00pm',
-                  '5:00pm',
-                  '6:00pm',
-                  '7:00pm',
-                  '8:00pm',
-                  '9:00pm',
-                  '10:00pm',
-                  '11:00pm',
-                ],
-                datasets: [
-                  {
-                    data: [25, 30, 32, 38, 40, 33, 55, 40, 30, 38, 45, 42],
-                    shadowColor: '#CAA2FA',
-                    r: '10',
-                    strokeWidth: '2',
-                    stroke: '#FD9068',
-                    dotFullColor: '#FD9068',
-                  },
-                  // {
-                  //   data: [0, 0, 0, 38, 40, 33, 0, 0, 0, 0, 0, 0],
-                  //   shadowColor: '##B56BF7',
-                  //   r: '10',
-                  //   strokeWidth: '2',
-                  //   stroke: '#FD9068',
-                  //   dotFullColor: '#FD9068',
-                  // },
-                ],
-              }}
-              width={width * widthCount} // from react-native
-              height={height * 0.95}
-              yAxisSuffix="pm"
-              yAxisInterval={1} // optional, defaults to 1
-              withInnerLines={false}
-              chartConfig={{
-                backgroundColor: 'transparent',
-                backgroundGradientFrom: 'transparent',
-                backgroundGradientTo: 'transparent',
-                decimalPlaces: 0, // optional, defaults to 2dp
-                color: (opacity = 1) => 'rgba(255, 255, 255, 255)',
-                labelColor: (opacity = 1) => 'rgba(255, 255, 255, 255)',
-                xyLabelColor: '#000',
-                xyAxisColor: '#000',
-                style: {
-                  borderRadius: 16,
-                },
-                propsForDots: {
-                  r: '10',
-                  strokeWidth: '3',
-                  stroke: '#fff',
-                },
-              }}
-              bezier
+        <View
+          style={{flexDirection: 'row', justifyContent: 'center', flex: 0.1}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <View
               style={{
-                marginVertical: 30,
-                marginHorizontal: 0,
+                width: 25,
+                height: 12,
+                borderRadius: 10,
+                marginRight: 5,
+                backgroundColor: '#CAA2FA',
               }}
-              onDotPress={onDotPress}
             />
-          </TouchableOpacity>
-        </ScrollView>
+            <Text>Awake</Text>
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginLeft: 15,
+            }}>
+            <View
+              style={{
+                width: 25,
+                height: 12,
+                borderRadius: 10,
+                marginRight: 5,
+                backgroundColor: '#B56BF7',
+              }}
+            />
+            <Text>Sleeping</Text>
+          </View>
+        </View>
+        <View style={{flex: 0.9}}>
+          <ScrollView horizontal={true}>
+            <TouchableOpacity
+              // onPress={() => onChangeOrientation()}
+              style={{height: height * 0.75, width: width * widthCount}}>
+              <LineChart
+                data={{
+                  labels: [
+                    '12:00pm',
+                    '1:00pm',
+                    '2:00pm',
+                    '3:00pm',
+                    '4:00pm',
+                    '5:00pm',
+                    '6:00pm',
+                    '7:00pm',
+                    '8:00pm',
+                    '9:00pm',
+                    '10:00pm',
+                    '11:00pm',
+                  ],
+                  datasets: [
+                    {
+                      data: [25, 30, 32, 0, 0, 0, 55, 40, 30, 38, 45, 42],
+                      shadowColor: '#CAA2FA',
+                      r: '10',
+                      strokeWidth: '2',
+                      stroke: '#FD9068',
+                      dotFullColor: '#FD9068',
+                      color: () => '#CAA2FA',
+                    },
+                    {
+                      data: [0, 0, 0, 38, 40, 33, 0, 0, 0, 0, 0, 0],
+                      shadowColor: '#B56BF7',
+                      r: '10',
+                      strokeWidth: '2',
+                      stroke: '#FD9068',
+                      dotFullColor: '#FD9068',
+                      color: () => '#B56BF7',
+                    },
+                  ],
+                }}
+                width={width * widthCount} // from react-native
+                height={height * 0.75}
+                yAxisSuffix="pm"
+                yAxisInterval={1} // optional, defaults to 1
+                withInnerLines={false}
+                chartConfig={{
+                  backgroundGradientFrom: '#1E2923',
+                  backgroundGradientFromOpacity: 0,
+                  backgroundGradientTo: '#08130D',
+                  backgroundGradientToOpacity: 0.5,
+                  fillShadowGradient: '#CAA2FA',
+                  useShadowColorFromDataset: true,
+                  decimalPlaces: 0, // optional, defaults to 2dp
+                  color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  labelColor: (opacity = 1) =>
+                    `rgba(255, 255, 255, ${opacity})`,
+                  xyLabelColor: '#000',
+                  xyAxisColor: '#000',
+                  style: {
+                    borderRadius: 16,
+                  },
+                  propsForDots: {
+                    r: '10',
+                    strokeWidth: '3',
+                    stroke: '#fff',
+                  },
+                }}
+                bezier
+                style={{
+                  marginVertical: 30,
+                  marginHorizontal: 0,
+                }}
+                onDotPress={onDotPress}
+              />
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
@@ -153,6 +193,5 @@ const styles = StyleSheet.create({
     flex: 0.91,
     flexDirection: 'column',
     backgroundColor: '#F5FBFF',
-    position: 'relative',
   },
 });

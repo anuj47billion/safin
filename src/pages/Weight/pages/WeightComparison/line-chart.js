@@ -29,8 +29,16 @@ class LineChart extends AbstractChart {
     if (typeof getDotProps === 'function') {
       return getDotProps(x, i);
     }
-    const {propsForDots = {}} = chartConfig;
-    return {r: '4', ...propsForDots};
+
+    // const defaultDotProps = {r: '4', strokeWidth: '1', stroke: '#000'};
+
+    if (i === 2 || i === 5) {
+      const {propsForDots = {}} = chartConfig;
+      return {r: '4', ...propsForDots};
+    }
+    // else {
+    //   return {r: '4', ...defaultDotProps};
+    // }
   };
   renderDots = config => {
     const {
@@ -50,6 +58,7 @@ class LineChart extends AbstractChart {
       renderDotContent = () => {
         return null;
       },
+      onDotPress,
     } = this.props;
 
     data.forEach(dataset => {
@@ -66,31 +75,27 @@ class LineChart extends AbstractChart {
         const cy =
           ((baseHeight - this.calcHeight(x, datas, height)) / 4) * 3 +
           paddingTop;
-        const onPress = () => {
-          if (!onDataPointClick || hidePointsAtIndex.includes(i)) {
-            return;
-          }
+        // const onPress = () => {
+        //   if (!onDataPointClick || hidePointsAtIndex.includes(i)) {
+        //     return;
+        //   }
 
-          onDataPointClick({
-            index: i,
-            value: x,
-            dataset,
-            x: cx,
-            y: cy,
-            getColor: opacity => this.getColor(dataset, opacity),
-          });
-        };
+        //   onDataPointClick({
+        //     index: i,
+        //     value: x,
+        //     dataset,
+        //     x: cx,
+        //     y: cy,
+        //     getColor: opacity => this.getColor(dataset, opacity),
+        //   });
+        // };
         output.push(
           <Circle
             key={Math.random()}
             cx={cx}
             cy={cy}
-            fill={
-              typeof getDotColor === 'function'
-                ? getDotColor(x, i)
-                : this.getColor(dataset, 0.9)
-            }
-            onPress={onPress}
+            fill={dataset.dotFullColor}
+            onPress={() => alert('dfsdf')}
             {...this.getPropsForDots(x, i)}
           />,
           <Circle
@@ -100,7 +105,7 @@ class LineChart extends AbstractChart {
             r="14"
             fill="#fff"
             fillOpacity={0}
-            onPress={onPress}
+            onPress={(x, i) => onDotPress(x, i)}
           />,
           renderDotContent({x: cx, y: cy, index: i}),
         );
@@ -414,13 +419,17 @@ class LineChart extends AbstractChart {
     return config.data.map((dataset, index) => {
       const result = this.getBezierLinePoints(dataset, config);
       return (
-        <Path
-          key={index}
-          d={result}
-          fill="none"
-          stroke={this.getColor(dataset, 0.2)}
-          strokeWidth={this.getStrokeWidth(dataset)}
-        />
+        <>
+          {dataset.withShadowLines && (
+            <Path
+              key={index}
+              d={result}
+              fill="none"
+              stroke={this.getColor(dataset, 0.2)}
+              strokeWidth={this.getStrokeWidth(dataset)}
+            />
+          )}
+        </>
       );
     });
   };
@@ -435,9 +444,6 @@ class LineChart extends AbstractChart {
       useColorFromDataset,
     } = config;
     return data.map((dataset, index) => {
-      if (dataset.withDots === false) {
-        return;
-      }
       const d =
         this.getBezierLinePoints(dataset, config) +
         ` L${paddingRight +
@@ -451,6 +457,7 @@ class LineChart extends AbstractChart {
           fill={`url(#fillShadowGradient${
             useColorFromDataset ? `_${index}` : ''
           })`}
+          // fill={dataset.shadowColor}
           strokeWidth={0}
         />
       );
@@ -503,7 +510,7 @@ class LineChart extends AbstractChart {
     const {
       borderRadius = 0,
       paddingTop = 16,
-      paddingRight = 40,
+      paddingRight = 64,
       margin = 0,
       marginRight = 0,
       paddingBottom = 0,
@@ -535,7 +542,8 @@ class LineChart extends AbstractChart {
             height={height + legendOffset}
             rx={borderRadius}
             ry={borderRadius}
-            fill="url(#backgroundGradient)"
+            fill="#F5FBFF"
+            // fill="url(#backgroundGradient)"
             fillOpacity={transparent ? 0 : 1}
           />
           {this.props.data.legend &&

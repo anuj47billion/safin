@@ -124,7 +124,7 @@ const WeeklyChart = props => {
               </View>
             </View>
 
-            <View style={{marginTop: 10}}>
+            <View style={{marginTop: 10, paddingBottom: 200}}>
               <View
                 style={{
                   backgroundColor: '#2B9CE2',
@@ -197,7 +197,6 @@ const WeeklyChart = props => {
                 />
               </View>
             </View>
-
           </ScrollView>
         </View>
       </View>
