@@ -9,8 +9,10 @@ import {
   Image,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const OtpVerify = props => {
   const {navigation} = props;
@@ -36,7 +38,7 @@ const OtpVerify = props => {
           <AntDesign
             onPress={() => navigation.goBack()}
             name="arrowleft"
-            size={35}
+            size={RFValue(35, height)}
           />
         </View>
         <View>
@@ -49,12 +51,12 @@ const OtpVerify = props => {
       <View style={styles.bottomView}>
         <View style={styles.bodyView}>
           <View style={styles.bodyTopView}>
-            <Text style={{fontSize: 35}}>Verify Mobile</Text>
+            <Text style={{fontSize: RFValue(35, height)}}>Verify Mobile</Text>
           </View>
           <View style={styles.centerView}>
             <OtpInputBoxs />
             <View style={{flexDirection: 'column', padding: 20}}>
-              <Text style={{fontSize: 16, color: '#c1c1c1'}}>
+              <Text style={{fontSize: RFValue(16, height), color: '#c1c1c1'}}>
                 Please enter 4 digit one time password sent to your mobile
                 number.
               </Text>
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: RFValue(18, height),
   },
   otpInputView: {
     paddingLeft: 20,

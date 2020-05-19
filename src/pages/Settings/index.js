@@ -1,18 +1,22 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  FlatList,
   Image,
   ScrollView,
-  ImageBackground,
+  Dimensions,
 } from 'react-native';
 import Header from '../../common/Header';
 import ToggleSwitch from 'toggle-switch-react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {RFValue} from 'react-native-responsive-fontsize';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const Settings = props => {
   const {navigation} = props;
@@ -32,10 +36,12 @@ const Settings = props => {
       <ScrollView style={styles.viewBody}>
         <View>
           <View>
-            <Text style={{fontSize: 18, color: '#1FC2CB'}}>Alerts</Text>
+            <Text style={{fontSize: RFValue(18, height), color: '#1FC2CB'}}>
+              Alerts
+            </Text>
           </View>
           <View style={styles.toggleParentView}>
-            <Text style={{fontSize: 18, fontWeight: '700'}}>
+            <Text style={{fontSize: RFValue(18, height), fontWeight: '700'}}>
               Audible Alerts
             </Text>
             <View>
@@ -47,7 +53,9 @@ const Settings = props => {
             </View>
           </View>
           <View style={styles.toggleParentView}>
-            <Text style={{fontSize: 18, fontWeight: '700'}}>Phone Alerts</Text>
+            <Text style={{fontSize: RFValue(18, height), fontWeight: '700'}}>
+              Phone Alerts
+            </Text>
             <View>
               <ToggleSwitch
                 isOn={phoneAlert}
@@ -57,7 +65,7 @@ const Settings = props => {
             </View>
           </View>
           <View style={styles.toggleParentView}>
-            <Text style={{fontSize: 18, fontWeight: '700'}}>
+            <Text style={{fontSize: RFValue(18, height), fontWeight: '700'}}>
               Vital Defaults
             </Text>
             <View>
@@ -78,15 +86,22 @@ const Settings = props => {
         </View>
         <View style={{marginTop: 20}}>
           <View>
-            <Text style={{fontSize: 18, color: '#1FC2CB'}}>Vital Monitors</Text>
+            <Text style={{fontSize: RFValue(18, height), color: '#1FC2CB'}}>
+              Vital Monitors
+            </Text>
           </View>
           <View style={styles.toggleParentView}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image source={require('../../assets/image/lungs-solid.png')} />
-              <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
+              <Text
+                style={{
+                  fontSize: RFValue(16, height),
+                  fontWeight: '700',
+                  marginLeft: 12,
+                }}>
                 Breathing
               </Text>
-              <Text style={{fontSize: 13}}>(20-60/pm)</Text>
+              <Text style={{fontSize: RFValue(14, height)}}>(20-60/pm)</Text>
             </View>
             <View>
               <ToggleSwitch
@@ -99,11 +114,19 @@ const Settings = props => {
           </View>
           <View style={styles.toggleParentView}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <FontAwesome5 name="thermometer-empty" size={22} />
-              <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
+              <FontAwesome5
+                name="thermometer-empty"
+                size={RFValue(22, height)}
+              />
+              <Text
+                style={{
+                  fontSize: RFValue(16, height),
+                  fontWeight: '700',
+                  marginLeft: 12,
+                }}>
                 Body Temp
               </Text>
-              <Text style={{fontSize: 13}}>(97-100.3)</Text>
+              <Text style={{fontSize: RFValue(14, height)}}>(97-100.3)</Text>
             </View>
             <View>
               <ToggleSwitch
@@ -117,7 +140,12 @@ const Settings = props => {
           <View style={styles.toggleParentView}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Image source={require('../../assets/image/back-solid.png')} />
-              <Text style={{fontSize: 16, fontWeight: '700', marginLeft: 12}}>
+              <Text
+                style={{
+                  fontSize: RFValue(16, height),
+                  fontWeight: '700',
+                  marginLeft: 12,
+                }}>
                 Sleeping Position
               </Text>
             </View>
@@ -132,17 +160,23 @@ const Settings = props => {
           </View>
           <View style={styles.toggleParentView}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <AntDesign color="#CACACA" name="hearto" size={20} />
+              <AntDesign
+                color="#CACACA"
+                name="hearto"
+                size={RFValue(20, height)}
+              />
               <Text
                 style={{
-                  fontSize: 16,
+                  fontSize: RFValue(16, height),
                   fontWeight: '700',
                   marginLeft: 12,
                   color: '#CACACA',
                 }}>
                 Heart Rate
               </Text>
-              <Text style={{fontSize: 13, color: '#CACACA'}}>(90-160 bpm)</Text>
+              <Text style={{fontSize: RFValue(14, height), color: '#CACACA'}}>
+                (90-160 bpm)
+              </Text>
             </View>
             <View>
               <ToggleSwitch
@@ -158,7 +192,7 @@ const Settings = props => {
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
               <Text
                 style={{
-                  fontSize: 20,
+                  fontSize: RFValue(20, height),
                   fontStyle: 'italic',
                   fontWeight: '700',
                   color: '#CACACA',
@@ -167,7 +201,7 @@ const Settings = props => {
               </Text>
               <Text
                 style={{
-                  fontSize: 14,
+                  fontSize: RFValue(14, height),
                   fontStyle: 'italic',
                   fontWeight: '700',
                   color: '#CACACA',
@@ -176,7 +210,7 @@ const Settings = props => {
               </Text>
               <Text
                 style={{
-                  fontSize: 16,
+                  fontSize: RFValue(16, height),
                   fontWeight: '700',
                   marginLeft: 12,
                   color: '#CACACA',
@@ -197,10 +231,14 @@ const Settings = props => {
           </View>
           <View style={[styles.toggleParentView, {paddingBottom: 50}]}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <FontAwesome name="bed" color="#CACACA" size={22} />
+              <FontAwesome
+                name="bed"
+                color="#CACACA"
+                size={RFValue(22, height)}
+              />
               <Text
                 style={{
-                  fontSize: 16,
+                  fontSize: RFValue(16, height),
                   fontWeight: '700',
                   marginLeft: 12,
                   color: '#CACACA',

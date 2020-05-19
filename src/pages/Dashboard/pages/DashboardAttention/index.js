@@ -16,6 +16,7 @@ import Header from '../../../../common/Header';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -29,8 +30,12 @@ const DashboardAttention = props => {
       <Header title="Data" navigation={navigation} />
       <View style={styles.viewBody}>
         <View style={styles.topView}>
-          <Text style={{color: '#fff'}}>Baby Tom's Vitals needs</Text>
-          <Text style={{color: '#fff', fontSize: 30}}>Immediate Attention</Text>
+          <Text style={{color: '#fff', fontSize: RFValue(16, height)}}>
+            Baby Tom's Vitals needs
+          </Text>
+          <Text style={{color: '#fff', fontSize: RFValue(30, height)}}>
+            Immediate Attention
+          </Text>
           <TouchableOpacity
             style={{width: '100%', alignItems: 'center', marginTop: 20}}
             onPress={() => {
@@ -68,7 +73,11 @@ const DashboardAttention = props => {
                 });
               }}
               style={[styles.rowDetailView, {backgroundColor: '#FD9068'}]}>
-              <FontAwesome5 name="temperature-low" color="#fff" size={25} />
+              <FontAwesome5
+                name="temperature-low"
+                color="#fff"
+                size={RFValue(24, height)}
+              />
               <Text style={{color: '#fff'}}>100.8 F</Text>
             </TouchableOpacity>
             <View style={styles.rowDetailView}>
@@ -84,7 +93,7 @@ const DashboardAttention = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <Entypo color="#A7AFBE" name="heart" size={25} />
+              <Entypo color="#A7AFBE" name="heart" size={RFValue(24, height)} />
               <Text>120 BPM</Text>
             </View>
             <View
@@ -94,7 +103,11 @@ const DashboardAttention = props => {
               ]}>
               <View style={{flexDirection: 'row'}}>
                 <Text
-                  style={{fontSize: 25, fontWeight: '700', color: '#A7AFBE'}}>
+                  style={{
+                    fontSize: RFValue(24, height),
+                    fontWeight: '700',
+                    color: '#A7AFBE',
+                  }}>
                   O
                 </Text>
                 <Text style={{fontWeight: '700', color: '#A7AFBE'}}>2</Text>
@@ -106,7 +119,11 @@ const DashboardAttention = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <FontAwesome color="#A7AFBE" name="bed" size={25} />
+              <FontAwesome
+                color="#A7AFBE"
+                name="bed"
+                size={RFValue(24, height)}
+              />
               <Text>Soft</Text>
             </View>
           </View>
@@ -126,7 +143,10 @@ const DashboardAttention = props => {
                     <Text style={{color: '#fff'}}>Room Temperature</Text>
                   </View>
                   <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{color: '#fff', fontSize: 20}}>100.8 F</Text>
+                    <Text
+                      style={{color: '#fff', fontSize: RFValue(20, height)}}>
+                      100.8 F
+                    </Text>
                     <Text style={{color: '#fff'}}> Normal: 96-99.9 F</Text>
                   </View>
                 </View>
@@ -144,7 +164,7 @@ const DashboardAttention = props => {
                   styles.messageBottomView,
                   {backgroundColor: '#FD9068'},
                 ]}>
-                <Text style={{color: '#fff'}}>
+                <Text style={{color: '#fff', fontSize: RFValue(14, height)}}>
                   Your baby's body temperature is high, you need consult your
                   physician.
                 </Text>
@@ -160,11 +180,21 @@ const DashboardAttention = props => {
                     paddingLeft: 20,
                   }}>
                   <View>
-                    <Text style={{color: '#fff'}}>Room Temperature</Text>
+                    <Text
+                      style={{color: '#fff', fontSize: RFValue(16, height)}}>
+                      Room Temperature
+                    </Text>
                   </View>
                   <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text style={{color: '#fff', fontSize: 20}}>100.8 F</Text>
-                    <Text style={{color: '#fff'}}> Normal: 96-99.9 F</Text>
+                    <Text
+                      style={{color: '#fff', fontSize: RFValue(20, height)}}>
+                      100.8 F
+                    </Text>
+                    <Text
+                      style={{color: '#fff', fontSize: RFValue(16, height)}}>
+                      {' '}
+                      Normal: 96-99.9 F
+                    </Text>
                   </View>
                 </View>
                 <View
@@ -173,7 +203,11 @@ const DashboardAttention = props => {
                     justifyContent: 'center',
                     paddingRight: 10,
                   }}>
-                  <FontAwesome5 name="temperature-low" color="#fff" size={25} />
+                  <FontAwesome5
+                    name="temperature-low"
+                    color="#fff"
+                    size={RFValue(24, height)}
+                  />
                 </View>
               </View>
               <View
@@ -181,7 +215,7 @@ const DashboardAttention = props => {
                   styles.messageBottomView,
                   {backgroundColor: '#FF808E'},
                 ]}>
-                <Text style={{color: '#fff'}}>
+                <Text style={{color: '#fff', fontSize: RFValue(14, height)}}>
                   Your baby's body temperature is high, you need consult your
                   physician.
                 </Text>

@@ -13,8 +13,10 @@ import {
 import {Formik, Field} from 'formik';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FormikInputField from '../../components/forms/formikFields/FormikInputField';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const ForgetPassword = props => {
   const {navigation} = props;
@@ -26,7 +28,7 @@ const ForgetPassword = props => {
           <AntDesign
             onPress={() => navigation.goBack()}
             name="arrowleft"
-            size={35}
+            size={RFValue(35, height)}
           />
         </View>
         <View>
@@ -39,7 +41,7 @@ const ForgetPassword = props => {
       <View style={styles.bottomView}>
         <View style={styles.bodyView}>
           <View style={styles.bodyTopView}>
-            <Text style={{fontSize: 35}}>Forget Password</Text>
+            <Text style={{fontSize: RFValue(35, height)}}>Forget Password</Text>
           </View>
           <Formik
             initialValues={{phoneNumber: ''}}
@@ -63,7 +65,7 @@ const ForgetPassword = props => {
                         // placeholder="Phone Number"
                         style={{
                           borderBottomWidth: 1,
-                          fontSize: 18,
+                          fontSize: RFValue(18, height),
                           // marginBottom: 30,
                         }}
                       />
@@ -128,6 +130,6 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: RFValue(18, height),
   },
 });

@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const OptionsButton = props => {
   const {navigation} = props;
@@ -47,6 +49,6 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: RFValue(18, height),
   },
 });

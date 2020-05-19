@@ -1,10 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {
   StyleSheet,
   View,
   Text,
   TouchableOpacity,
-  FlatList,
   Image,
   ScrollView,
   Dimensions,
@@ -14,6 +14,7 @@ import Header from '../../../../common/Header';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -47,8 +48,12 @@ const DashboardHome = props => {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Text style={{color: '#fff'}}>Baby Tom's Vitals are</Text>
-                  <Text style={{color: '#fff', fontSize: 30}}>Perfect</Text>
+                  <Text style={{color: '#fff', fontSize: RFValue(16, height)}}>
+                    Baby Tom's Vitals are
+                  </Text>
+                  <Text style={{color: '#fff', fontSize: RFValue(30, height)}}>
+                    Perfect
+                  </Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -78,7 +83,7 @@ const DashboardHome = props => {
                 });
               }}
               style={styles.rowDetailView}>
-              <FontAwesome5 name="temperature-low" size={25} />
+              <FontAwesome5 name="temperature-low" size={RFValue(24, height)} />
               <Text>100.8 F</Text>
             </TouchableOpacity>
 
@@ -95,7 +100,7 @@ const DashboardHome = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <Entypo color="#A7AFBE" name="heart" size={25} />
+              <Entypo color="#A7AFBE" name="heart" size={RFValue(24, height)} />
               <Text>120 BPM</Text>
             </View>
             <View
@@ -105,7 +110,11 @@ const DashboardHome = props => {
               ]}>
               <View style={{flexDirection: 'row'}}>
                 <Text
-                  style={{fontSize: 25, fontWeight: '700', color: '#A7AFBE'}}>
+                  style={{
+                    fontSize: RFValue(24, height),
+                    fontWeight: '700',
+                    color: '#A7AFBE',
+                  }}>
                   O
                 </Text>
                 <Text style={{fontWeight: '700', color: '#A7AFBE'}}>2</Text>
@@ -117,7 +126,11 @@ const DashboardHome = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <FontAwesome color="#A7AFBE" name="bed" size={25} />
+              <FontAwesome
+                color="#A7AFBE"
+                name="bed"
+                size={RFValue(24, height)}
+              />
               <Text>Soft</Text>
             </View>
           </View>

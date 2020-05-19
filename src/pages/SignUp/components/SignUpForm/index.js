@@ -17,8 +17,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {CheckBox} from 'react-native-elements';
 import {Field} from 'formik';
 import FormikInputField from '../../../../components/forms/formikFields/FormikInputField';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const SignUpForm = props => {
   const {navigation, handleChange, handleBlur, handleSubmit, values} = props;
@@ -50,7 +52,7 @@ const SignUpForm = props => {
                 label="Phone Number"
                 style={{
                   borderBottomWidth: 1,
-                  fontSize: 18,
+                  fontSize: RFValue(18, height),
                 }}
               />
             </View>
@@ -67,7 +69,7 @@ const SignUpForm = props => {
                 secureStatus={securePasswordStatus}
                 label="Password"
                 style={{
-                  fontSize: 18,
+                  fontSize: RFValue(18, height),
                 }}
               />
             </View>
@@ -84,7 +86,7 @@ const SignUpForm = props => {
                 secureStatus={secureCPasswordStatus}
                 label="Confirm Password"
                 style={{
-                  fontSize: 18,
+                  fontSize: RFValue(18, height),
                 }}
               />
             </View>
@@ -93,7 +95,11 @@ const SignUpForm = props => {
                 title="Terms & Conditions"
                 checkedIcon={
                   <View style={{backgroundColor: '#1FC2CB'}}>
-                    <AntDesign style={{color: '#fff'}} name="check" size={20} />
+                    <AntDesign
+                      style={{color: '#fff'}}
+                      name="check"
+                      size={RFValue(20, height)}
+                    />
                   </View>
                 }
                 uncheckedIcon={<View style={{padding: 9, borderWidth: 1}} />}
@@ -113,9 +119,14 @@ const SignUpForm = props => {
                 </View>
               </TouchableOpacity>
               <View style={{flexDirection: 'row', marginTop: 10}}>
-                <Text style={{fontSize: 18}}>You have an account? </Text>
+                <Text style={{fontSize: RFValue(18, height)}}>
+                  You have an account?{' '}
+                </Text>
                 <TouchableOpacity onPress={() => navigation.push('Login')}>
-                  <Text style={{color: '#0081f2', fontSize: 18}}>Sign In</Text>
+                  <Text
+                    style={{color: '#0081f2', fontSize: RFValue(18, height)}}>
+                    Sign In
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -146,6 +157,6 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: RFValue(18, height),
   },
 });

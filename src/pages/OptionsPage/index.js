@@ -3,12 +3,13 @@
 import React from 'react';
 import {StyleSheet, View, Text, Image, Dimensions} from 'react-native';
 import OptionsButton from './components/OptionsButton';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const OptionsPage = props => {
   const {navigation} = props;
-
   return (
     <View style={styles.container}>
       <View style={styles.imageTopView}>
@@ -28,7 +29,9 @@ const OptionsPage = props => {
           <OptionsButton navigation={navigation} />
         </View>
         <View style={styles.supportTextView}>
-          <Text style={{color: '#5B81A4', fontSize: 18}}>Contact Support</Text>
+          <Text style={{color: '#5B81A4', fontSize: RFValue(18, height)}}>
+            Contact Support
+          </Text>
         </View>
       </View>
     </View>

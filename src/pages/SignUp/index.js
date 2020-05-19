@@ -16,8 +16,10 @@ import {Formik} from 'formik';
 import {CheckBox} from 'react-native-elements';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import * as Yup from 'yup';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const validationSchema = Yup.object({
   phoneNumber: Yup.string().required('This field is required'),
@@ -35,7 +37,7 @@ const SignUp = props => {
           <AntDesign
             onPress={() => navigation.goBack()}
             name="arrowleft"
-            size={35}
+            size={RFValue(35, height)}
           />
         </View>
         <View>
@@ -48,7 +50,7 @@ const SignUp = props => {
       <View style={styles.bottomView}>
         <View style={styles.bodyView}>
           <View style={styles.bodyTopView}>
-            <Text style={{fontSize: 35}}>Sign Up</Text>
+            <Text style={{fontSize: RFValue(35, height)}}>Sign Up</Text>
           </View>
           <Formik
             initialValues={{phoneNumber: '', password: '', confirmpassword: ''}}

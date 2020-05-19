@@ -8,14 +8,13 @@ import {
   Dimensions,
 } from 'react-native';
 import {ErrorMessage} from 'formik';
-
 import Octicons from 'react-native-vector-icons/Octicons';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const FormikInputField = props => {
-  console.log('=================', props);
-
   const {
     id,
     label,
@@ -94,12 +93,14 @@ const FormikInputField = props => {
             {(id === 'password' || id === 'confirmpassword') && (
               <Octicons
                 name={secureStatus ? 'eye' : 'eye-closed'}
-                size={22}
+                size={RFValue(22, height)}
                 onPress={() => changeSecureStatus(field.name)}
               />
             )}
             {id === 'babyWeight' && (
-              <Text style={{fontWeight: '700', fontSize: 18}}>lbs</Text>
+              <Text style={{fontWeight: '700', fontSize: RFValue(18, height)}}>
+                lbs
+              </Text>
             )}
           </View>
         </View>
@@ -140,7 +141,8 @@ const styles = StyleSheet.create({
   titleStyles: {
     position: 'absolute',
     left: 5,
-    fontSize: 17,
+    fontSize: RFValue(17, height),
+    color: '#d5d5d5',
   },
   textinputView: {
     flexDirection: 'row',

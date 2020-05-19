@@ -13,8 +13,10 @@ import {
 } from 'react-native';
 import {Field} from 'formik';
 import FormikInputField from '../../../../components/forms/formikFields/FormikInputField';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 const LoginForm = props => {
   const {navigation, handleChange, handleBlur, handleSubmit, values} = props;
@@ -41,7 +43,7 @@ const LoginForm = props => {
               // placeholder="Phone Number"
               style={{
                 borderBottomWidth: 1,
-                fontSize: 18,
+                fontSize: RFValue(18, height),
                 // marginBottom: 30,
               }}
             />
@@ -60,14 +62,14 @@ const LoginForm = props => {
               label="Password"
               // placeholder="Password"
               style={{
-                fontSize: 18,
+                fontSize: RFValue(18, height),
                 // marginBottom: 20,
               }}
             />
           </View>
           <View style={{marginTop: 30}}>
             <TouchableOpacity onPress={() => navigation.push('ForgetPassword')}>
-              <Text style={{color: '#1FC2CB', fontSize: 16}}>
+              <Text style={{color: '#1FC2CB', fontSize: RFValue(18, height)}}>
                 Forget Password
               </Text>
             </TouchableOpacity>
@@ -81,7 +83,9 @@ const LoginForm = props => {
           </View>
         </TouchableOpacity>
         <View style={{flexDirection: 'row', marginTop: 20}}>
-          <Text style={{fontSize: 18}}>Don't have an account? </Text>
+          <Text style={{fontSize: RFValue(18, height)}}>
+            Don't have an account?{' '}
+          </Text>
           <TouchableOpacity onPress={() => navigation.push('SignUp')}>
             <Text style={{color: '#0081f2', fontSize: 18}}>Sign Up</Text>
           </TouchableOpacity>
@@ -111,6 +115,6 @@ const styles = StyleSheet.create({
   },
   signText: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: RFValue(18, height),
   },
 });
