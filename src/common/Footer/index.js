@@ -18,8 +18,8 @@ const Footer = props => {
             screenName: 'Dashboard',
           });
         }}>
-        <AntDesign name="home" size={25} />
-        <Text>Dashboard</Text>
+        <AntDesign color="#80D5DC" name="home" size={22} />
+        <Text style={{color: '#80D5DC', fontSize: 12}}>Dashboard</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconTextView}
@@ -29,8 +29,12 @@ const Footer = props => {
             screenName: 'Summary',
           });
         }}>
-        <MaterialCommunityIcons name="calendar-blank-outline" size={25} />
-        <Text>Summary</Text>
+        <MaterialCommunityIcons
+          color="#80D5DC"
+          name="calendar-blank-outline"
+          size={22}
+        />
+        <Text style={{color: '#80D5DC', fontSize: 12}}>Summary</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconTextView}
@@ -40,8 +44,8 @@ const Footer = props => {
             screenName: 'Settings',
           });
         }}>
-        <Feather name="settings" size={25} />
-        <Text>Settings</Text>
+        <Feather color="#80D5DC" name="settings" size={22} />
+        <Text style={{color: '#80D5DC', fontSize: 12}}>Settings</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.iconTextView}
@@ -51,8 +55,8 @@ const Footer = props => {
             screenName: 'Profile',
           });
         }}>
-        <EvilIcons name="user" size={35} />
-        <Text>Profile</Text>
+        <EvilIcons color="#80D5DC" name="user" size={35} />
+        <Text style={{color: '#80D5DC', fontSize: 12}}>Profile</Text>
       </TouchableOpacity>
     </View>
   );

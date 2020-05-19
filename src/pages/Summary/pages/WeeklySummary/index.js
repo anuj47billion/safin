@@ -76,26 +76,57 @@ const WeeklySummary = props => {
                   <View style={styles.bottomView}>
                     <View style={styles.detailsView}>
                       <View style={styles.rowDetailView}>
-                        <Entypo name="heart" size={25} />
-                        <Text>120 BPM</Text>
+                        <Image
+                          source={require('../../../../assets/image/lungs-solid.png')}
+                        />
+                        <Text>20/min</Text>
                       </View>
                       <View style={styles.rowDetailView}>
                         <FontAwesome5 name="temperature-low" size={25} />
                         <Text>100.8 F</Text>
                       </View>
                       <View style={styles.rowDetailView}>
-                        <Text>95%</Text>
+                        <Image
+                          source={require('../../../../assets/image/back-solid.png')}
+                        />
+                        <Text>Back</Text>
                       </View>
                     </View>
                     <View style={[styles.detailsView, styles.marginView]}>
-                      <View style={styles.rowDetailView}>
-                        <Text>20/min</Text>
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <Entypo color="#A7AFBE" name="heart" size={25} />
+                        <Text>120 BPM</Text>
                       </View>
-                      <View style={styles.rowDetailView}>
-                        <Text>Back</Text>
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <View style={{flexDirection: 'row'}}>
+                          <Text
+                            style={{
+                              fontSize: 25,
+                              fontWeight: '700',
+                              color: '#A7AFBE',
+                            }}>
+                            O
+                          </Text>
+                          <Text style={{fontWeight: '700', color: '#A7AFBE'}}>
+                            2
+                          </Text>
+                        </View>
+                        <Text>95%</Text>
                       </View>
-                      <View style={styles.rowDetailView}>
-                        <FontAwesome name="bed" size={25} />
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <FontAwesome color="#A7AFBE" name="bed" size={25} />
                         <Text>Soft</Text>
                       </View>
                     </View>
@@ -129,26 +160,57 @@ const WeeklySummary = props => {
                   <View style={styles.bottomView}>
                     <View style={styles.detailsView}>
                       <View style={styles.rowDetailView}>
-                        <Entypo name="heart" size={25} />
-                        <Text>120 BPM</Text>
+                        <Image
+                          source={require('../../../../assets/image/lungs-solid.png')}
+                        />
+                        <Text>20/min</Text>
                       </View>
                       <View style={styles.rowDetailView}>
                         <FontAwesome5 name="temperature-low" size={25} />
                         <Text>100.8 F</Text>
                       </View>
                       <View style={styles.rowDetailView}>
-                        <Text>95%</Text>
+                        <Image
+                          source={require('../../../../assets/image/back-solid.png')}
+                        />
+                        <Text>Back</Text>
                       </View>
                     </View>
                     <View style={[styles.detailsView, styles.marginView]}>
-                      <View style={styles.rowDetailView}>
-                        <Text>20/min</Text>
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <Entypo color="#A7AFBE" name="heart" size={25} />
+                        <Text>120 BPM</Text>
                       </View>
-                      <View style={styles.rowDetailView}>
-                        <Text>Back</Text>
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <View style={{flexDirection: 'row'}}>
+                          <Text
+                            style={{
+                              fontSize: 25,
+                              fontWeight: '700',
+                              color: '#A7AFBE',
+                            }}>
+                            O
+                          </Text>
+                          <Text style={{fontWeight: '700', color: '#A7AFBE'}}>
+                            2
+                          </Text>
+                        </View>
+                        <Text>95%</Text>
                       </View>
-                      <View style={styles.rowDetailView}>
-                        <FontAwesome name="bed" size={25} />
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <FontAwesome color="#A7AFBE" name="bed" size={25} />
                         <Text>Soft</Text>
                       </View>
                     </View>
@@ -182,26 +244,57 @@ const WeeklySummary = props => {
                   <View style={styles.bottomView}>
                     <View style={styles.detailsView}>
                       <View style={styles.rowDetailView}>
-                        <Entypo name="heart" size={25} />
-                        <Text>120 BPM</Text>
+                        <Image
+                          source={require('../../../../assets/image/lungs-solid.png')}
+                        />
+                        <Text>20/min</Text>
                       </View>
                       <View style={styles.rowDetailView}>
                         <FontAwesome5 name="temperature-low" size={25} />
                         <Text>100.8 F</Text>
                       </View>
                       <View style={styles.rowDetailView}>
-                        <Text>95%</Text>
+                        <Image
+                          source={require('../../../../assets/image/back-solid.png')}
+                        />
+                        <Text>Back</Text>
                       </View>
                     </View>
                     <View style={[styles.detailsView, styles.marginView]}>
-                      <View style={styles.rowDetailView}>
-                        <Text>20/min</Text>
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <Entypo color="#A7AFBE" name="heart" size={25} />
+                        <Text>120 BPM</Text>
                       </View>
-                      <View style={styles.rowDetailView}>
-                        <Text>Back</Text>
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <View style={{flexDirection: 'row'}}>
+                          <Text
+                            style={{
+                              fontSize: 25,
+                              fontWeight: '700',
+                              color: '#A7AFBE',
+                            }}>
+                            O
+                          </Text>
+                          <Text style={{fontWeight: '700', color: '#A7AFBE'}}>
+                            2
+                          </Text>
+                        </View>
+                        <Text>95%</Text>
                       </View>
-                      <View style={styles.rowDetailView}>
-                        <FontAwesome name="bed" size={25} />
+                      <View
+                        style={[
+                          styles.bottomRowDetailView,
+                          {backgroundColor: '#edeff0'},
+                        ]}>
+                        <FontAwesome color="#A7AFBE" name="bed" size={25} />
                         <Text>Soft</Text>
                       </View>
                     </View>
@@ -238,18 +331,25 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   rowDetailView: {
-    width: width * 0.25,
-    height: width * 0.25,
+    width: height * 0.127,
+    height: height * 0.127,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: 10,
-    borderWidth: 0.5,
     elevation: 4,
     shadowOffset: {width: 5, height: 5},
     shadowColor: 'grey',
     shadowOpacity: 0.5,
     shadowRadius: 10,
+  },
+  bottomRowDetailView: {
+    width: height * 0.127,
+    height: height * 0.127,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
   },
   topCutView: {
     flex: 0.7,

@@ -31,19 +31,24 @@ const OtpVerify = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageTopCorner}>
-        <Image source={require('../../assets/image/topRightCorner.png')} />
-      </View>
-      <View style={styles.bodyView}>
-        <View style={{flex: 0.09, padding: 20}}>
+      <View style={styles.topView}>
+        <View style={{padding: 20}}>
           <AntDesign
             onPress={() => navigation.goBack()}
             name="arrowleft"
             size={35}
           />
         </View>
-        <View style={{flex: 0.9, marginTop: 15}}>
-          <View style={styles.topView}>
+        <View>
+          <Image
+            style={{height: '100%'}}
+            source={require('../../assets/image/topRightCorner.png')}
+          />
+        </View>
+      </View>
+      <View style={styles.bottomView}>
+        <View style={styles.bodyView}>
+          <View style={styles.bodyTopView}>
             <Text style={{fontSize: 35}}>Verify Mobile</Text>
           </View>
           <View style={styles.centerView}>
@@ -58,7 +63,7 @@ const OtpVerify = props => {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.bottomView}>
+          <View style={styles.bottomButtonView}>
             <TouchableOpacity
               onPress={() => {
                 navigation.push('App', {
@@ -81,15 +86,22 @@ export default OtpVerify;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    position: 'relative',
+    flexDirection: 'column',
     backgroundColor: '#fff',
   },
-  imageTopCorner: {
-    position: 'absolute',
-    right: 0,
-  },
   topView: {
+    flex: 0.2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  bottomView: {
+    flex: 0.8,
+  },
+  bodyView: {
+    width: width,
+    flex: 1,
+  },
+  bodyTopView: {
     flex: 0.2,
     justifyContent: 'center',
     paddingLeft: 20,
@@ -98,7 +110,7 @@ const styles = StyleSheet.create({
     flex: 0.5,
     // flexDirection: 'row',
   },
-  bottomView: {
+  bottomButtonView: {
     flex: 0.3,
     alignItems: 'center',
   },
@@ -116,9 +128,5 @@ const styles = StyleSheet.create({
   },
   otpInputView: {
     paddingLeft: 20,
-  },
-  bodyView: {
-    width: width,
-    flex: 1,
   },
 });

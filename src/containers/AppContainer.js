@@ -33,16 +33,6 @@ const AppContainer = () => {
               options={{
                 headerShown: false,
                 headerTransparent: true,
-                // headerTitle: props => <></>,
-                // headerBackground: () => <></>,
-                // headerLeft: props => (
-                //   <Ionicons
-                //     name="md-arrow-back"
-                //     size={30}
-                //     style={{padding: 20}}
-                //     onPress={props.onPress}
-                //   />
-                // ),
               }}
               name="Login"
               component={Login}
@@ -51,16 +41,6 @@ const AppContainer = () => {
               options={{
                 headerShown: false,
                 headerTransparent: true,
-                // headerTitle: props => <></>,
-                // headerBackground: () => <></>,
-                // headerLeft: props => (
-                //   <Ionicons
-                //     name="md-arrow-back"
-                //     size={30}
-                //     style={{padding: 20}}
-                //     onPress={props.onPress}
-                //   />
-                // ),
               }}
               name="SignUp"
               component={SignUp}
@@ -69,16 +49,6 @@ const AppContainer = () => {
               options={{
                 headerShown: false,
                 headerTransparent: true,
-                // headerTitle: props => <></>,
-                // headerBackground: () => <></>,
-                // headerLeft: props => (
-                //   <Ionicons
-                //     name="md-arrow-back"
-                //     size={30}
-                //     style={{padding: 20}}
-                //     onPress={props.onPress}
-                //   />
-                // ),
               }}
               name="OtpVerify"
               component={OtpVerify}
@@ -87,16 +57,6 @@ const AppContainer = () => {
               options={{
                 headerShown: false,
                 headerTransparent: true,
-                // headerTitle: props => <></>,
-                // headerBackground: () => <></>,
-                // headerLeft: props => (
-                //   <Ionicons
-                //     name="md-arrow-back"
-                //     size={30}
-                //     style={{padding: 20}}
-                //     onPress={props.onPress}
-                //   />
-                // ),
               }}
               name="ForgetPassword"
               component={ForgetPassword}

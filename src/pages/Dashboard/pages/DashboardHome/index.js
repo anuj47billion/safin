@@ -47,7 +47,7 @@ const DashboardHome = props => {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Text style={{color: '#fff'}}>Baby Tom's vitals was</Text>
+                  <Text style={{color: '#fff'}}>Baby Tom's Vitals are</Text>
                   <Text style={{color: '#fff', fontSize: 30}}>Perfect</Text>
                 </View>
               </TouchableOpacity>
@@ -95,7 +95,7 @@ const DashboardHome = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <Entypo name="heart" size={25} />
+              <Entypo color="#A7AFBE" name="heart" size={25} />
               <Text>120 BPM</Text>
             </View>
             <View
@@ -104,8 +104,11 @@ const DashboardHome = props => {
                 {backgroundColor: '#edeff0'},
               ]}>
               <View style={{flexDirection: 'row'}}>
-                <Text style={{fontSize: 25, fontWeight: '700'}}>O</Text>
-                <Text style={{fontWeight: '700'}}>2</Text>
+                <Text
+                  style={{fontSize: 25, fontWeight: '700', color: '#A7AFBE'}}>
+                  O
+                </Text>
+                <Text style={{fontWeight: '700', color: '#A7AFBE'}}>2</Text>
               </View>
               <Text>95%</Text>
             </View>
@@ -114,7 +117,7 @@ const DashboardHome = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <FontAwesome name="bed" size={25} />
+              <FontAwesome color="#A7AFBE" name="bed" size={25} />
               <Text>Soft</Text>
             </View>
           </View>

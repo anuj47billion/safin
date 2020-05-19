@@ -30,26 +30,30 @@ const SignUp = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageTopCorner}>
-        <Image source={require('../../assets/image/topRightCorner.png')} />
-      </View>
-      <View style={styles.bodyView}>
-        <View style={{flex: 0.09, padding: 20}}>
+      <View style={styles.topView}>
+        <View style={{padding: 20}}>
           <AntDesign
             onPress={() => navigation.goBack()}
             name="arrowleft"
             size={35}
           />
         </View>
-        <View style={{flex: 0.91}}>
-          <View style={styles.topView}>
+        <View>
+          <Image
+            style={{height: '100%'}}
+            source={require('../../assets/image/topRightCorner.png')}
+          />
+        </View>
+      </View>
+      <View style={styles.bottomView}>
+        <View style={styles.bodyView}>
+          <View style={styles.bodyTopView}>
             <Text style={{fontSize: 35}}>Sign Up</Text>
           </View>
           <Formik
             initialValues={{phoneNumber: '', password: '', confirmpassword: ''}}
             validationSchema={validationSchema}
             onSubmit={values => {
-              alert(JSON.stringify(values));
               navigation.push('OtpVerify');
             }}>
             {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -64,27 +68,6 @@ const SignUp = props => {
           </Formik>
         </View>
       </View>
-
-      {/* <View style={styles.topView}>
-        <Text style={{fontSize: 35}}>Sign Up</Text>
-      </View>
-      <Formik
-        initialValues={{phoneNumber: '', password: '', confirmpassword: ''}}
-        validationSchema={validationSchema}
-        onSubmit={values => {
-          alert(JSON.stringify(values));
-          navigation.push('OtpVerify');
-        }}>
-        {({handleChange, handleBlur, handleSubmit, values}) => (
-          <SignUpForm
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-            handleSubmit={handleSubmit}
-            values={values}
-            navigation={navigation}
-          />
-        )}
-      </Formik> */}
     </View>
   );
 };
@@ -94,21 +77,24 @@ export default SignUp;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    position: 'relative',
+    flexDirection: 'column',
     backgroundColor: '#fff',
-  },
-  imageTopCorner: {
-    position: 'absolute',
-    right: 0,
   },
   topView: {
     flex: 0.2,
-    justifyContent: 'center',
-    paddingLeft: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  bottomView: {
+    flex: 0.8,
   },
   bodyView: {
     width: width,
     flex: 1,
+  },
+  bodyTopView: {
+    flex: 0.2,
+    justifyContent: 'center',
+    paddingLeft: 20,
   },
 });

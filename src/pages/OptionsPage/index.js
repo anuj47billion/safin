@@ -11,22 +11,24 @@ const OptionsPage = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageTopCorner}>
-        <Image source={require('../../assets/image/topRightCorner.png')} />
+      <View style={styles.imageTopView}>
+        <Image
+          style={{height: '100%', alignSelf: 'flex-end'}}
+          source={require('../../assets/image/topRightCorner.png')}
+        />
       </View>
-      <View style={styles.bodyView}>
-        <View style={styles.topView}>
-          <Image source={require('../../assets/image/logo.png')} />
+      <View style={styles.centerView}>
+        <Image
+          style={{height: '80%'}}
+          source={require('../../assets/image/logo.png')}
+        />
+      </View>
+      <View style={styles.bottomView}>
+        <View style={styles.buttonView}>
+          <OptionsButton navigation={navigation} />
         </View>
-        <View style={styles.bottomView}>
-          <View style={styles.buttonView}>
-            <OptionsButton navigation={navigation} />
-          </View>
-          <View style={styles.supportTextView}>
-            <Text style={{color: '#5B81A4', fontSize: 18}}>
-              Contact Support
-            </Text>
-          </View>
+        <View style={styles.supportTextView}>
+          <Text style={{color: '#5B81A4', fontSize: 18}}>Contact Support</Text>
         </View>
       </View>
     </View>
@@ -38,21 +40,20 @@ export default OptionsPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    position: 'relative',
+    flexDirection: 'column',
     backgroundColor: '#fff',
   },
-  imageTopCorner: {
-    position: 'absolute',
+  imageTopView: {
     right: 0,
+    flex: 0.2,
   },
-  topView: {
-    flex: 0.55,
-    justifyContent: 'flex-end',
+  centerView: {
+    flex: 0.4,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   bottomView: {
-    flex: 0.45,
+    flex: 0.4,
     flexDirection: 'column',
   },
   buttonView: {
@@ -62,8 +63,5 @@ const styles = StyleSheet.create({
     flex: 0.3,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  bodyView: {
-    width: width,
   },
 });

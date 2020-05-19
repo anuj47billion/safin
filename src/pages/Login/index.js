@@ -27,19 +27,24 @@ const Login = props => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageTopCorner}>
-        <Image source={require('../../assets/image/topRightCorner.png')} />
-      </View>
-      <View style={styles.bodyView}>
-        <View style={{flex: 0.09, padding: 20}}>
+      <View style={styles.topView}>
+        <View style={{padding: 20}}>
           <AntDesign
             onPress={() => navigation.goBack()}
             name="arrowleft"
             size={35}
           />
         </View>
-        <View style={{flex: 0.91}}>
-          <View style={styles.topView}>
+        <View>
+          <Image
+            style={{height: '100%'}}
+            source={require('../../assets/image/topRightCorner.png')}
+          />
+        </View>
+      </View>
+      <View style={styles.bottomView}>
+        <View style={styles.bodyView}>
+          <View style={styles.bodyTopView}>
             <Text style={{fontSize: 35}}>Sign In</Text>
           </View>
           <Formik
@@ -71,40 +76,24 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    position: 'relative',
+    flexDirection: 'column',
     backgroundColor: '#fff',
-  },
-  imageTopCorner: {
-    position: 'absolute',
-    right: 0,
   },
   topView: {
     flex: 0.2,
-    justifyContent: 'center',
-    paddingLeft: 20,
-  },
-  centerView: {
-    flex: 0.5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   bottomView: {
-    flex: 0.3,
-    alignItems: 'center',
-  },
-  buttonContainer: {
-    padding: 15,
-    width: width * 0.85,
-    backgroundColor: '#1FC2CB',
-    marginTop: 20,
-    borderRadius: 25,
-    alignItems: 'center',
-  },
-  signText: {
-    color: '#fff',
-    fontSize: 18,
+    flex: 0.8,
   },
   bodyView: {
     width: width,
     flex: 1,
+  },
+  bodyTopView: {
+    flex: 0.2,
+    justifyContent: 'center',
+    paddingLeft: 20,
   },
 });

@@ -19,12 +19,12 @@ const Settings = props => {
   const [audibleAlert, setAudibleAlert] = useState(false);
   const [phoneAlert, setPhoneAlert] = useState(false);
   const [vitalDefaults, setVitalDefaults] = useState(true);
-  const [heartRate, setHeartRate] = useState(true);
+  const [heartRate, setHeartRate] = useState(false);
   const [bodyTemp, setBodyTemp] = useState(true);
-  const [oxygenLevel, setOxygenLevel] = useState(true);
+  const [oxygenLevel, setOxygenLevel] = useState(false);
   const [breathing, setBreathing] = useState(true);
   const [sleepingPosition, setSleepingPosition] = useState(true);
-  const [mattress, setMattress] = useState(true);
+  const [mattress, setMattress] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -146,7 +146,7 @@ const Settings = props => {
             </View>
             <View>
               <ToggleSwitch
-                isOn={vitalDefaults}
+                isOn={heartRate}
                 size="large"
                 onToggle={isOn => setHeartRate(!heartRate)}
                 disabled={true}
@@ -187,7 +187,7 @@ const Settings = props => {
             </View>
             <View>
               <ToggleSwitch
-                isOn={vitalDefaults}
+                isOn={oxygenLevel}
                 size="large"
                 onToggle={isOn => setOxygenLevel(!oxygenLevel)}
                 disabled={true}
@@ -210,7 +210,7 @@ const Settings = props => {
             </View>
             <View>
               <ToggleSwitch
-                isOn={vitalDefaults}
+                isOn={mattress}
                 size="large"
                 onToggle={isOn => setMattress(!mattress)}
                 disabled={true}

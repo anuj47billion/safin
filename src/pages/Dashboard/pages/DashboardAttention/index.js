@@ -29,7 +29,7 @@ const DashboardAttention = props => {
       <Header title="Data" navigation={navigation} />
       <View style={styles.viewBody}>
         <View style={styles.topView}>
-          <Text style={{color: '#fff'}}>Baby Tom's vitals</Text>
+          <Text style={{color: '#fff'}}>Baby Tom's Vitals needs</Text>
           <Text style={{color: '#fff', fontSize: 30}}>Immediate Attention</Text>
           <TouchableOpacity
             style={{width: '100%', alignItems: 'center', marginTop: 20}}
@@ -84,7 +84,7 @@ const DashboardAttention = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <Entypo name="heart" size={25} />
+              <Entypo color="#A7AFBE" name="heart" size={25} />
               <Text>120 BPM</Text>
             </View>
             <View
@@ -93,8 +93,11 @@ const DashboardAttention = props => {
                 {backgroundColor: '#edeff0'},
               ]}>
               <View style={{flexDirection: 'row'}}>
-                <Text style={{fontSize: 25, fontWeight: '700'}}>O</Text>
-                <Text style={{fontWeight: '700'}}>2</Text>
+                <Text
+                  style={{fontSize: 25, fontWeight: '700', color: '#A7AFBE'}}>
+                  O
+                </Text>
+                <Text style={{fontWeight: '700', color: '#A7AFBE'}}>2</Text>
               </View>
               <Text>95%</Text>
             </View>
@@ -103,7 +106,7 @@ const DashboardAttention = props => {
                 styles.bottomRowDetailView,
                 {backgroundColor: '#edeff0'},
               ]}>
-              <FontAwesome name="bed" size={25} />
+              <FontAwesome color="#A7AFBE" name="bed" size={25} />
               <Text>Soft</Text>
             </View>
           </View>
